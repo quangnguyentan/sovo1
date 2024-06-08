@@ -48,8 +48,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     <Box
       sx={{
         width: { md: "30%", xs: "100%" },
-        height: { md: "490px", xs: "350px" },
-        py : 2
+        height: { md: "500px", xs: "350px" },
+        py : 4
       }}
     >
     
@@ -549,11 +549,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   {account[0]?.name}
                 </Typography>
               </Box>
+              
             </Box>
           </Box>
         </Container>
       )}
-      <Box sx={{ display: { md: "flex" }, gap: 2,  }}>
+      <Box sx={{ display: { md: "flex" }, gap: 2, px: {md : location.pathname !== "/" ? 2 : 0, xl :2} }}>
         <Box
           sx={{
             width: {
@@ -698,6 +699,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               }}
             >
               <Box
+              className="video_container_image"
                 sx={{
                   position: "absolute",
                   bottom: {
@@ -705,7 +707,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
                         ? 0
-                        : 5,
+                        : 15,
                   },
                   left: 12,
                   objectFit: "contain",
@@ -719,6 +721,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 />
               </Box>
               <Box
+              className="video_container_link"
                 sx={{
                   zIndex: 1,
                   objectFit: "contain",
@@ -735,7 +738,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
                         ? 0
-                        : -30,
+                        : -40,
                   },
                 }}
               >
@@ -781,6 +784,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 </Link>
               </Box>
               <Box
+                className="video_container_bottom_video"
                 sx={{
                   
                   zIndex: 0,
@@ -793,7 +797,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     md: -10,
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
-                         ? -10 : -24
+                         ? -10 : -30
                   },
                   width: { md: "100%", xs: "100%" },
                 }}

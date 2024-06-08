@@ -74,7 +74,7 @@ function Public() {
       <AppBar/>
       <Marquee/>
     </Box>
-    <Container disableGutters  fixed sx={{ display : 'flex', alignItems : 'center', gap : 1, py : 1, px : location.pathname.slice(0, 2) !== '/'  ? {md :  10, xl : location.pathname === '/soi-keo' || location.pathname === '/top-nha-cai' ? 0 : 5} : {md : 20, xl : 0}}}>
+    <Container disableGutters  fixed sx={{ display : 'flex', alignItems : 'center', gap : 1, py : 1, px : location.pathname.slice(0, 2) !== '/'  ? {md : location.pathname.slice(0, 6) === "/video" ? 5 : 20, xl : location.pathname === '/top-nha-cai'  ? 0 : 5} : {md : 20, xl : 0}}}>
        <Link style={{ textDecoration : 'none' }}>
           <Button className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px' }} > Cược Ngay </Button>
         </Link>

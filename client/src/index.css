@@ -58,19 +58,27 @@ body {
   background-color: transparent;
 }
 @media screen and (min-width: 0px) and (max-width: 400px ) {
-  /* CSS dành cho điện thoại có màn hình dưới 480px */
-  /* Ví dụ: */
+  
   .video_container {
     height: 220px;
   }
+  
 }
 
 /* CSS cho điện thoại có màn hình lớn hơn 480px và nhỏ hơn 768px */
 @media screen and (min-width: 401px) and (max-width: 767px) {
-  /* CSS dành cho điện thoại có màn hình từ 481px đến 767px */
-  /* Ví dụ: */
+ 
   .video_container {
       height: 240px;
+  }
+  .video_container_link {
+    top: -40px !important;
+  }
+  .video_container_image {
+    bottom: 15px !important;
+  }
+  .video_container_bottom_video{
+    bottom: 0 !important;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 767px) {
@@ -79,12 +87,14 @@ body {
   .video_container {
       height: 230px;
   }
+  
 }
 @media screen and (max-width: 768px) {
   /* CSS dành cho điện thoại có màn hình từ 481px đến 767px */
   /* Ví dụ: */
   .video_container {
   }
+  
 }
 
 .vjs-control-bar{

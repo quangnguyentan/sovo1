@@ -24,7 +24,7 @@ function Banner({ data }) {
         display: { md: "flex", xs: "flex" },
         height: { xs: "50px", md: "90px" },
         width: { xs: "50%", xl: "70%", md : '70%' },
-        justifyContent :checkBanner.length > 1  ? '' : {md : 'center', xl : 'start'},
+        justifyContent :checkBanner.length > 1  ? '' : {md : '', xl : 'center'},
       }}
     >
       {data

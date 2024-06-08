@@ -130,7 +130,7 @@ function CustomGrid({
           >
             <Grid item xs={size}>
               {matches &&
-                matches?.slice(0, 3)?.map((el) => (
+                matches?.slice(0, 3 )?.map((el) => (
                   <>
                     {account &&
                       account
@@ -580,7 +580,7 @@ function CustomGrid({
             <Grid
               container
               spacing={{ xs: 2, md: 3 }}
-              columns={{ xs: 2, sm: 8, md: 12 }}
+              columns={{ xs: 2, sm: 8, md: 12, xl : 18 }}
             >
               {matches &&
                 matches?.slice(start, end)?.map((el) => (
