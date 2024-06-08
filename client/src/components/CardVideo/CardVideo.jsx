@@ -705,7 +705,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
                         ? 0
-                        : 0,
+                        : 5,
                   },
                   left: 12,
                   objectFit: "contain",
@@ -735,7 +735,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
                         ? 0
-                        : -25,
+                        : -30,
                   },
                 }}
               >
@@ -747,7 +747,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   to="https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236"
                 >
                   <Chip
-                    label="CƯỢC NGAY"
+                    label="CƯỢC CMD68"
                     className="button_info"
                     sx={{
                       color: "white",
@@ -789,11 +789,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   fontSize: "10px",
                   textTransform: "capitalize",
                   cursor: "pointer",
-                  top: {
-                    md: -25,
+                  bottom: {
+                    md: -10,
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
-                         ? 0 : 0
+                         ? -10 : -24
                   },
                   width: { md: "100%", xs: "100%" },
                 }}

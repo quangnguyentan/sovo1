@@ -5,6 +5,15 @@ import Container from "@mui/material/Container";
 import { Box } from "@mui/material";
 
 function Banner({ data }) {
+  const checkBanner = []
+  if(data) {
+    data
+        ?.filter((fm) => fm?.position === "TOP")
+        ?.map((el) =>{
+          checkBanner.push(el);
+        })
+  }
+  
   return (
     <Container
       disableGutters
@@ -14,8 +23,8 @@ function Banner({ data }) {
         flexDirection: { md: "row", xs: "column" },
         display: { md: "flex", xs: "flex" },
         height: { xs: "50px", md: "90px" },
-        width: { xs: "100%", md: "70%" },
-        justifyContent : 'center',
+        width: { xs: "50%", xl: "70%", md : '70%' },
+        justifyContent :checkBanner.length > 1  ? '' : {md : 'center', xl : 'start'},
       }}
     >
       {data

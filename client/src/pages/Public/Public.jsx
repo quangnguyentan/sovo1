@@ -13,7 +13,6 @@ import { Button, Chip, Modal } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 import popup from '../../assets/popup.gif'
 import '../../index.css'
-import Footer1 from '../../components/Footer1/Footer'
 function Public() {
   const [ads, setAds] = useState('')
   const location = useLocation()
@@ -75,7 +74,7 @@ function Public() {
       <AppBar/>
       <Marquee/>
     </Box>
-    <Container disableGutters  fixed sx={{ display : 'flex', alignItems : 'center', gap : 1, py : 1, px : location.pathname === '/' ? 1 : 3}}>
+    <Container disableGutters  fixed sx={{ display : 'flex', alignItems : 'center', gap : 1, py : 1, px : location.pathname.slice(0, 2) !== '/'  ? {md :  10, xl : location.pathname === '/soi-keo' || location.pathname === '/top-nha-cai' ? 0 : 5} : {md : 20, xl : 0}}}>
        <Link style={{ textDecoration : 'none' }}>
           <Button className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px' }} > Cược Ngay </Button>
         </Link>
