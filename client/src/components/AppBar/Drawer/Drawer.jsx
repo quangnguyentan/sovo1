@@ -20,12 +20,12 @@ const HEADER_TEXT = [
     name : 'TRANG CHỦ',
     link : `${path.HOME}`
   },
- {
-    id : 2,
-    name : 'SOI KÈO',
-    link : `/${path.SOI_KEO}`
+//  {
+//     id : 2,
+//     name : 'SOI KÈO',
+//     link : `/${path.SOI_KEO}`
 
-  },
+//   },
   {
     id : 3,
     name : 'TOP NHÀ CÁI',

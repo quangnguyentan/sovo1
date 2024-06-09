@@ -78,7 +78,7 @@ function Home() {
            </Box>
         </Box>
 
-        {posts ? <CustomCard data={posts} title={'Soi kèo bóng đá'}/> : ''}
+        {/* {posts ? <CustomCard data={posts} title={'Soi kèo bóng đá'}/> : ''} */}
       </Container>
   )
 }

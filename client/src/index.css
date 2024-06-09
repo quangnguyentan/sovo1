@@ -81,6 +81,21 @@ body {
     bottom: 0 !important;
   }
 }
+@media screen and (min-width: 401px) and (max-width: 767px) {
+ 
+  .video_container {
+      height: 240px;
+  }
+  .video_container_link {
+    top: -40px !important;
+  }
+  .video_container_image {
+    bottom: 15px !important;
+  }
+  .video_container_bottom_video{
+    bottom: -5px !important;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 767px) {
   /* CSS dành cho điện thoại có màn hình từ 481px đến 767px */
   /* Ví dụ: */
@@ -101,8 +116,9 @@ body {
   top: 0;
   transition: none;
 }
+
 .vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar{
-  opacity: 1 !important;
+  opacity: 0 ;
 }
 
 .vjs-big-play-button{
