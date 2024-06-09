@@ -62,15 +62,7 @@ body {
   .video_container {
     height: 220px;
   }
-  .video_container_link {
-    top: -40px !important;
-  }
-  .video_container_image {
-    bottom: 15px !important;
-  }
-  .video_container_bottom_video{
-    bottom: -5px !important;
-  }
+  
 }
 
 /* CSS cho điện thoại có màn hình lớn hơn 480px và nhỏ hơn 768px */
@@ -79,30 +71,14 @@ body {
   .video_container {
       height: 240px;
   }
-  .video_container_link {
-    top: -40px !important;
-  }
-  .video_container_image {
-    bottom: 15px !important;
-  }
-  .video_container_bottom_video{
-    bottom: -5px !important;
-  }
+  
 }
 @media screen and (min-width: 401px) and (max-width: 767px) {
  
   .video_container {
       height: 240px;
   }
-  .video_container_link {
-    top: -40px !important;
-  }
-  .video_container_image {
-    bottom: 15px !important;
-  }
-  .video_container_bottom_video{
-    bottom: -5px !important;
-  }
+ 
 }
 @media screen and (min-width: 481px) and (max-width: 767px) {
   /* CSS dành cho điện thoại có màn hình từ 481px đến 767px */
@@ -110,15 +86,7 @@ body {
   .video_container {
       height: 230px;
   }
-  .video_container_link {
-    top: -40px !important;
-  }
-  .video_container_image {
-    bottom: 15px !important;
-  }
-  .video_container_bottom_video{
-    bottom: -5px !important;
-  }
+ 
   
 }
 @media screen and (max-width: 768px) {
@@ -156,7 +124,9 @@ body {
 .banner_bottom{
 
 } */
-
+.customIcon{
+  position: relative;
+}
 .truc_tiep {
   background:  linear-gradient(96deg, #008360 -2.23%, #49EC44 117.28%);
   animation: alternate 1s cubic-bezier(0,0,.2,1) infinite;

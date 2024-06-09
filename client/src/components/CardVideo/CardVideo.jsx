@@ -634,7 +634,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             </Box>
           )}
 
-          <Box sx={{ width: "100%", height: "100%" }}>
+          <Box sx={{ width: "100%", height: "100%", position : 'relative' }}>
             {visible && stream && (
               <Box
                 className="video_container"
@@ -669,6 +669,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 width="100%"
                 playsInline
                 height="100%"
+                
                 src={
                   ads?.file_url
                     ? ads?.file_url
@@ -693,7 +694,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             )}
             <Box
               sx={{
-                position: "relative",
                 display: "flex",
                 justifyContent: "space-between",
               }}
@@ -703,11 +703,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 sx={{
                   position: "absolute",
                   bottom: {
-                    md: 25,
+                    md: 20,
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
                         ? 0
-                        : 15,
+                        : 10,
                   },
                   left: 12,
                   objectFit: "contain",
@@ -733,12 +733,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   fontSize: "10px",
                   textTransform: "capitalize",
                   cursor: "pointer",
-                  top: {
-                    md: -55,
+                  bottom: {
+                    md: 25,
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
                         ? 0
-                        : -40,
+                        : 15,
                   },
                 }}
               >
@@ -785,19 +785,15 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               </Box>
               <Box
                 className="video_container_bottom_video"
-                sx={{
-                  
-                  zIndex: 0,
+                sx={{ 
+                  zIndex: 1,
                   position: "absolute",
-                  color: "white",
-                  fontSize: "10px",
-                  textTransform: "capitalize",
                   cursor: "pointer",
                   bottom: {
                     md: -10,
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
-                         ? -10 : -30
+                         ? 0 : -10
                   },
                   width: { md: "100%", xs: "100%" },
                 }}
@@ -811,7 +807,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                           src={el?.file_url}
                           style={{
                             width: "100%",
-                            objectFit: "contain",
+                            objectFit: "fill",
                             height: "fit-content",
                           }}
                           alt=""
