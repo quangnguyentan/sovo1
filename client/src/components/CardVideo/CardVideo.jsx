@@ -49,7 +49,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       sx={{
         width: { md: "30%", xs: "100%" },
         height: { md: "500px", xs: "350px" },
-        py : 4
+        py : { md : 4 , xs : 0}
       }}
     >
     
@@ -795,7 +795,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       location.pathname.slice(0, 2) === "/" && visible === true
                          ? 0 : -10
                   },
-                  width: { md: "100%", xs: "100%" },
+                  width: { md: "100%", xs: "100%" }
+                  ,
                 }}
               >
                 {adsSetting &&
@@ -807,7 +808,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                           src={el?.file_url}
                           style={{
                             width: "100%",
-                            objectFit: "fill",
+                            objectFit: "contain",
                             height: "fit-content",
                           }}
                           alt=""
