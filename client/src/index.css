@@ -62,7 +62,15 @@ body {
   .video_container {
     height: 220px;
   }
-  
+  .video_container_link {
+    top: -40px !important;
+  }
+  .video_container_image {
+    bottom: 15px !important;
+  }
+  .video_container_bottom_video{
+    bottom: -5px !important;
+  }
 }
 
 /* CSS cho điện thoại có màn hình lớn hơn 480px và nhỏ hơn 768px */
@@ -78,7 +86,7 @@ body {
     bottom: 15px !important;
   }
   .video_container_bottom_video{
-    bottom: 0 !important;
+    bottom: -5px !important;
   }
 }
 @media screen and (min-width: 401px) and (max-width: 767px) {
@@ -101,6 +109,15 @@ body {
   /* Ví dụ: */
   .video_container {
       height: 230px;
+  }
+  .video_container_link {
+    top: -40px !important;
+  }
+  .video_container_image {
+    bottom: 15px !important;
+  }
+  .video_container_bottom_video{
+    bottom: -5px !important;
   }
   
 }
