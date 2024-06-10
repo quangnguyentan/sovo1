@@ -18,6 +18,7 @@ import {
   FullscreenToggle,
 } from "video-react";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
+import { makeStyles } from '@mui/styles';
 import Button from "@mui/material/Button";
 import "../../index.css";
 import { useEffect, useRef, useState } from "react";
@@ -39,6 +40,15 @@ import bannerRight from "../../assets/banner_header_right.gif";
 import { apiGetStream, apiGetStreamById } from "../../services/streamService";
 import videojs from "video.js";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
+
+const useStyles = makeStyles(theme => ({
+  '@media screen and (min-width: 428px) and (max-width: 428px)': {
+    video_container_bottom_banner: {
+      bottom: '-40px !important',
+    },
+  },
+}));
 function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [ads, setAds] = useState("");
   const [adsSetting, setAdsSetting] = useState("");
@@ -66,6 +76,9 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       ></iframe>
     </Box>
   );
+  const classes = useStyles();
+ 
+  
   // useEffect(() => {
   //   const script = document.createElement("script");
 
@@ -823,7 +836,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 </Link>
               </Box>
               <Box
-                className={style ? "video_container_bottom_banner" : ""}
+                className={classes.video_container_bottom_banner}
                 sx={{
                   zIndex: 1,
                   position: "absolute",

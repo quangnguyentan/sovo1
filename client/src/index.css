@@ -63,11 +63,11 @@ body {
   }
   
 }
-@media screen and (min-width : 428px) and (max-width: 428px)  {
+/* @media screen and (min-width : 428px) and (max-width: 428px)  {
   .video_container_bottom_banner{
     bottom : -40px !important;
   }
-}
+} */
 /* CSS cho điện thoại có màn hình lớn hơn 480px và nhỏ hơn 768px */
 @media screen and (min-width: 401px) and (max-width: 767px) {
  
