@@ -46,8 +46,34 @@ const useStyles = makeStyles(theme => ({
   '@media screen and (min-width: 428px) and (max-width: 428px)': {
     video_container_bottom_banner: {
       bottom: '-40px !important',
+    },  
+  },
+  '@media only screen and (min-width: 375px) and (max-width: 375px) ': {
+    video_container_bottom_banner: {
+      bottom: '-40px !important',
     },
   },
+  '@media only screen and (min-width: 414px) and (max-width: 414px) and (-webkit-device-pixel-ratio: 2)': {
+    video_container_bottom_banner: {
+      bottom: '-40px !important',
+    },
+  },
+  '@media only screen and (min-width: 430px) and (max-width: 430px) ': {
+    video_container_bottom_banner: {
+      bottom: '-40px !important',
+    },
+  },
+  '@media only screen and (min-width: 390px) and (max-width: 390px) and (-webkit-device-pixel-ratio: 2)': {
+    video_container_bottom_banner: {
+      bottom: '-40px !important',
+    },
+  },
+  '@media only screen and (min-width: 320px) and (max-width: 320px) and (-webkit-device-pixel-ratio: 2)': {
+    video_container_bottom_banner: {
+      bottom: '-40px !important',
+    },
+  },
+ 
 }));
 function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [ads, setAds] = useState("");
