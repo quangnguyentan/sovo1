@@ -43,7 +43,7 @@ function Top() {
             <Chip label='Đặt Cược' className='button_info' sx={{ borderRadius : '10px', fontWeight : 600, width : '90px', height: {md : '30px', xs : '25px'}, fontSize : '10px' }} />
           </Box>
         </Box>
-        <Box sx={{ lignItems : 'center', width : '100%',bgcolor : '#000000', borderRadius : '15px 15px 0 0 ', display : 'flex', gap : {md : 3, xs : 2}, justifyContent : 'space-between', px : { md : 4 , xs : 2}, py : {md : 4, xs : 4}  }}>
+        <Box sx={{ lignItems : 'center', width : '100%',bgcolor : '#000000', borderRadius : '0 ', display : 'flex', gap : {md : 3, xs : 2}, justifyContent : 'space-between', px : { md : 4 , xs : 2}, py : {md : 4, xs : 4}  }}>
           <Box sx={{  justifyContent : 'end', display : 'flex', alignItems : 'center', gap : {md : 2, xs : 1}, flexDirection : 'column' }}>
             <img src={bet11} alt="" style={{ width : '90px', height : '90px', objectFit : 'cover' }} className='show_more_banner'/>
             <Box>
@@ -74,7 +74,7 @@ function Top() {
             <Chip label='Đặt Cược' className='button_info' sx={{ borderRadius : '10px', fontWeight : 600, width : '90px', height: {md : '30px', xs : '25px'}, fontSize : '10px' }} />
           </Box>
         </Box>
-        <Box sx={{ lignItems : 'center', width : '100%',bgcolor : '#000000', borderRadius : '15px 15px 0 0 ', display : 'flex', gap : {md : 3, xs : 2}, justifyContent : 'space-between', px : { md : 4 , xs : 2}, py : {md : 4, xs : 4}  }}>
+        <Box sx={{ lignItems : 'center', width : '100%',bgcolor : '#000000', borderRadius : '0 0 15px 15px  ', display : 'flex', gap : {md : 3, xs : 2}, justifyContent : 'space-between', px : { md : 4 , xs : 2}, py : {md : 4, xs : 4}  }}>
           <Box sx={{  justifyContent : 'end', display : 'flex', alignItems : 'center', gap : {md : 2, xs : 1}, flexDirection : 'column' }}>
             <img src={bet11} alt="" style={{ width : '90px', height : '90px', objectFit : 'cover' }} className='show_more_banner'/>
             <Box>

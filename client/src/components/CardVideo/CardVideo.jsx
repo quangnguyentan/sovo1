@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
       bottom: '-40px !important',
     },
   },
-  '@media only screen and (min-width: 414px) and (max-width: 414px) and (-webkit-device-pixel-ratio: 2)': {
+  '@media only screen and (min-width: 414px) and (max-width: 414px) and (-webkit-device-pixel-ratio: 3)': {
     video_container_bottom_banner: {
       bottom: '-40px !important',
     },
@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
       bottom: '-40px !important',
     },
   },
-  '@media only screen and (min-width: 390px) and (max-width: 390px) and (-webkit-device-pixel-ratio: 2)': {
+  '@media only screen and (min-width: 390px) and (max-width: 390px) and (-webkit-device-pixel-ratio: 3)': {
     video_container_bottom_banner: {
       bottom: '-40px !important',
     },
@@ -626,7 +626,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         sx={{
           display: { md: "flex" },
           gap: 2,
-          px: { md: location.pathname !== "/" ? 2 : 0, xl: 2 },
+          px: { md: location.pathname !== "/" ? 2 : 0, xl: location.pathname !== "/" ? 2 : 0 },
         }}
       >
         <Box
