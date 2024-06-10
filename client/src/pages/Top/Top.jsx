@@ -24,7 +24,7 @@ function Top() {
               </Typography>
             </Box>
           </Box>
-          <Box sx={{ height : {md : '60px', xs : '90px'}, width : { md : '220px', xs : '100px'}, display : 'flex', flexDirection : 'column', gap : 1}}>
+          <Box sx={{ height : {md : '60px', xs : '90px'}, width : { md : '280px', xs : '100px'}, display : 'flex', flexDirection : 'column', gap : 1}}>
             <Typography sx={{ fontSize : {md :  '14px', xs : '10px'},color : 'white' }}>
             ♠️THƯỞNG 100% LẦN NẠP ĐẦU TIÊN
             </Typography>
@@ -55,7 +55,7 @@ function Top() {
               </Typography>
             </Box>
           </Box>
-          <Box sx={{ height : {md : '60px', xs : '90px'}, width : { md : '220px', xs : '100px'}, display : 'flex', flexDirection : 'column', gap : 1}}>
+          <Box sx={{ height : {md : '60px', xs : '90px'}, width : { md : '280px', xs : '100px'}, display : 'flex', flexDirection : 'column', gap : 1}}>
             <Typography sx={{ fontSize : {md :  '14px', xs : '10px'},color : 'white' }}>
             ♠️THƯỞNG 100% LẦN NẠP ĐẦU TIÊN
             </Typography>
@@ -86,7 +86,7 @@ function Top() {
               </Typography>
             </Box>
           </Box>
-          <Box sx={{ height : {md : '60px', xs : '90px'}, width : { md : '220px', xs : '100px'}, display : 'flex', flexDirection : 'column', gap : 1}}>
+          <Box sx={{ height : {md : '60px', xs : '90px'}, width : { md : '280px', xs : '100px'}, display : 'flex', flexDirection : 'column', gap : 1}}>
             <Typography sx={{ fontSize : {md :  '14px', xs : '10px'},color : 'white' }}>
             ♠️THƯỞNG 100% LẦN NẠP ĐẦU TIÊN
             </Typography>

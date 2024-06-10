@@ -23,8 +23,9 @@ function Banner({ data }) {
         flexDirection: { md: "row", xs: "column" },
         display: { md: "flex", xs: "flex" },
         height: { xs: "50px", md: "90px" },
-        width: { xs: "50%", xl: "70%", md : '70%' },
+        width: { xs: "100%", xl: "70%", md : '70%' },
         justifyContent :checkBanner.length > 1  ? '' : {md : '', xl : 'center'},
+        mb : checkBanner.length >  1 ? { md : 0, xs : 8 } : ''
       }}
     >
       {data
@@ -40,6 +41,7 @@ function Banner({ data }) {
             />
           </Link>
         ))}
+       
     </Container>
   );
 }
