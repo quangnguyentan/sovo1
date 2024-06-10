@@ -63,7 +63,7 @@ body {
   }
   
 }
-@media screen and (max-width : 428px ) and (max-height: 926px) {
+@media screen and (min-width : 428px) and (max-width: 428px)  {
   .video_container_bottom_banner{
     bottom : -40px !important;
   }
@@ -115,7 +115,15 @@ body {
 .vjs-modal-dialog-content{
   display: none;
 }
-
+.hidden_play{
+  display: none !important;
+}
+/* .video-react .video-react-big-play-button:before{
+  display: none;
+} */
+/* .video-react .video-react-big-play-button.video-react-big-play-button-center{
+  display: none;
+} */
 /* .video-react.video-react-fullscreen {
   position: relative;
   overflow: hidden;

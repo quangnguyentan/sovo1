@@ -38,6 +38,7 @@ import bannerLeft from "../../assets/banner_header_left.gif";
 import bannerRight from "../../assets/banner_header_right.gif";
 import { apiGetStream, apiGetStreamById } from "../../services/streamService";
 import videojs from "video.js";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [ads, setAds] = useState("");
   const [adsSetting, setAdsSetting] = useState("");
@@ -117,6 +118,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const location = useLocation();
   const [matches, setMatches] = useState("");
   const [account, setAccount] = useState("");
+  const [hidden, setHidden] = useState(false)
   const apiGetAccount = async (ids) => {
     const response = await apiGetAccountById(ids);
     if (response.success) setAccount(response?.accountId);
@@ -151,7 +153,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     },
   };
 
-  let interval = 5;
+  let interval = 6;
   let timeArrow = 31;
   const [time, setTime] = useState(null);
   const [hiddenButton, setHiddenButton] = useState(false);
@@ -310,10 +312,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       video.removeEventListener("fullscreenchange");
     };
   };
-  waitInitElement(".customIcon").then((rs) => {
-    var video = document.querySelector(".customIcon");
-    video.play()
-  });
+ 
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const script = document.createElement("script");
@@ -600,7 +599,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
           ) : (
             ""
           )}
-          {!hiddenButton && (
+          {hidden && !hiddenButton && (
             <Box
               sx={{
                 position: "relative ",
@@ -699,7 +698,10 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             )}
 
             {!visible && ads && (
-              <video
+              <Player
+                onPlay={() => {
+                  setHidden(true)
+                }}
                 controls={false}
                 width="100%"
                 playsInline
@@ -710,16 +712,20 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"
                 }
                 preload="auto"
-                autoPlay="autoPlay"
                 className="customIcon"
               >
-                <source
-                    src={ ads?.file_url
-                    ? ads?.file_url
-                    : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"}
-                    type="application/x-mpegURL"
-                  />
-              </video>
+                <ControlBar disableDefaultControls  autoHide={true}>
+                  <ControlBar disableDefaultControls>
+                    {/* <PlayToggle /> */}
+                    {/* <VolumeMenuButton /> */}
+                  </ControlBar>
+                  <ControlBar disableDefaultControls>
+                    {/* <FullscreenToggle /> */}
+                  </ControlBar>
+                </ControlBar>
+                <BigPlayButton className={ hidden ? "hidden_play" : "" } position="center" />
+                <LoadingSpinner />
+              </Player>
             )}
             <Box
               sx={{
