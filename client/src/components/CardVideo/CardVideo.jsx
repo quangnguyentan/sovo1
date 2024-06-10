@@ -3,9 +3,9 @@ import ReactHlsPlayer from "react-hls-player";
 import Box from "@mui/material/Box";
 import CustomGrid from "../CustomGrid/CustomGrid";
 import BannerBottomVideo from "../../assets/banner_video.gif";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import TelegramIcon from '@mui/icons-material/Telegram';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import { Helmet } from "react-helmet";
 import qc from "../../assets/qc.jpg";
 import {
@@ -49,11 +49,20 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       sx={{
         width: { md: "30%", xs: "100%" },
         height: { md: "500px", xs: "350px" },
-        py : { md : 4 , xs : 0}
+        py: { md: 4, xs: 0 },
       }}
     >
-    
-      <iframe src="https://www5.cbox.ws/box/?boxid=949782&boxtag=pXQtQ5" width="100%" height="100%" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+      <iframe
+        src="https://www5.cbox.ws/box/?boxid=949782&boxtag=pXQtQ5"
+        width="100%"
+        height="100%"
+        allowtransparency="yes"
+        allow="autoplay"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        scrolling="auto"
+      ></iframe>
     </Box>
   );
   // useEffect(() => {
@@ -263,28 +272,28 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     });
   };
   function waitInitElement(selector) {
-    return new Promise(resolve => {
-        let interval = setInterval(() => {
-            let exist = document.querySelector(selector)
-            if (exist !== undefined && exist != null && exist !== false) {
-                clearInterval(interval)
-                resolve(true)
-            }
-        }, 1000)
-    })
-}
-  const waitButtonClick = () => {
-    waitInitElement('#my-video_html5_api').then((rs) => {
-      const video = document.getElementById("my-video_html5_api");
-      video.play()
-    })
+    return new Promise((resolve) => {
+      let interval = setInterval(() => {
+        let exist = document.querySelector(selector);
+        if (exist !== undefined && exist != null && exist !== false) {
+          clearInterval(interval);
+          resolve(true);
+        }
+      }, 1000);
+    });
   }
-    
-  
+  const waitButtonClick = () => {
+    waitInitElement("#my-video_html5_api").then((rs) => {
+      const video = document.getElementById("my-video_html5_api");
+      console.log(video);
+      video.play();
+    });
+  };
 
+  
   const handleClick = () => {
     const video = document.getElementById("my-video_html5_api");
-   
+
     const adSkipButton = document.getElementById("ad-skip-button");
     const userGestureEvents = ["touchend", "click"];
     const handleAdSkip = () => {
@@ -301,7 +310,10 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       video.removeEventListener("fullscreenchange");
     };
   };
- 
+  waitInitElement(".customIcon").then((rs) => {
+    var video = document.querySelector(".customIcon");
+    video.play()
+  });
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const script = document.createElement("script");
@@ -313,7 +325,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     script.async = true;
     document.body.appendChild(script);
     document.head.appendChild(link);
-   
+
     window.addEventListener("DOMContentLoaded", handleClick);
     handleChangeFullscreen();
     // Cleanup function
@@ -324,7 +336,16 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     };
   }, [handleClick]);
   return (
-    <Box sx={{ height: "fit-content", md: 0, xs: 0, bgcolor: "#1B1C21", p: 0 , pt : 1 }}>
+    <Box
+      sx={{
+        height: "fit-content",
+        md: 0,
+        xs: 0,
+        bgcolor: "#1B1C21",
+        p: 0,
+        pt: 1,
+      }}
+    >
       {!titleContent && matches && (
         <Container disableGutters sx={{ py: { md: 0, xs: 0 }, px: 2 }}>
           {adsSetting &&
@@ -491,7 +512,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               </Box>
             </Box>
           </Box>
-          
+
           <Box
             sx={{
               width: "100%",
@@ -503,7 +524,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               pt: 1,
             }}
           >
-            <Box sx={{ fontSize: { md : "15px", xs : '12px'}, fontWeight: 600, py : 1 }}>
+            <Box
+              sx={{
+                fontSize: { md: "15px", xs: "12px" },
+                fontWeight: 600,
+                py: 1,
+              }}
+            >
               Phát trực tiếp {matches[0]?.host_club_name} vs{" "}
               {matches[0]?.guest_club_name} vào lúc{" "}
               {matches[0]?.start_time?.slice(0, -3)}, ngày{" "}
@@ -520,28 +547,27 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             >
               <Typography
                 sx={{
-                  fontSize: {md : "17px", xs : '12px'},
+                  fontSize: { md: "17px", xs: "12px" },
                   textTransform: "capitalize",
                   display: { md: "flex", xs: "inline-block" },
                 }}
               >
                 {matches[0]?.tournament_name}
               </Typography>
-              <Box sx={{display: "flex",  }}>
+              <Box sx={{ display: "flex" }}>
                 <Typography
                   sx={{
-                    fontSize: { md : "15px", xs : '12px'},
+                    fontSize: { md: "15px", xs: "12px" },
                     textTransform: "capitalize",
                     display: { md: "flex", xs: "inline-block" },
-                    
                   }}
                 >
                   Người bình luận:&nbsp;
                 </Typography>
-                
+
                 <Typography
                   sx={{
-                    fontSize: { md : "15px", xs : '12px'},
+                    fontSize: { md: "15px", xs: "12px" },
                     textTransform: "capitalize",
                     display: { md: "flex", xs: "inline-block" },
                   }}
@@ -549,12 +575,17 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   {account[0]?.name}
                 </Typography>
               </Box>
-              
             </Box>
           </Box>
         </Container>
       )}
-      <Box sx={{ display: { md: "flex" }, gap: 2, px: {md : location.pathname !== "/" ? 2 : 0, xl :2} }}>
+      <Box
+        sx={{
+          display: { md: "flex" },
+          gap: 2,
+          px: { md: location.pathname !== "/" ? 2 : 0, xl: 2 },
+        }}
+      >
         <Box
           sx={{
             width: {
@@ -564,7 +595,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             height: "100%",
           }}
         >
-        {location.pathname.slice(0, 2) !== "/" ? <Box sx={{height : '30px'}}/> : ''}
+          {location.pathname.slice(0, 2) !== "/" ? (
+            <Box sx={{ height: "30px" }} />
+          ) : (
+            ""
+          )}
           {!hiddenButton && (
             <Box
               sx={{
@@ -586,7 +621,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     id="ad-skip-button"
                     endIcon={<SkipNextIcon />}
                     onClick={() => {
-                      waitButtonClick()
+                      waitButtonClick();
                       setVisible(true);
                       setHiddenButton(true);
                     }}
@@ -634,7 +669,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             </Box>
           )}
 
-          <Box sx={{ width: "100%", height: "100%", position : 'relative' }}>
+          <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
             {visible && stream && (
               <Box
                 className="video_container"
@@ -664,12 +699,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             )}
 
             {!visible && ads && (
-              <Player
+              <video
                 controls={false}
                 width="100%"
                 playsInline
                 height="100%"
-                
                 src={
                   ads?.file_url
                     ? ads?.file_url
@@ -679,18 +713,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 autoPlay="autoPlay"
                 className="customIcon"
               >
-                <ControlBar disableDefaultControls autoHide={true}>
-                  <ControlBar disableDefaultControls>
-                    {/* <PlayToggle /> */}
-                    {/* <VolumeMenuButton /> */}
-                  </ControlBar>
-                  <ControlBar disableDefaultControls>
-                    {/* <FullscreenToggle /> */}
-                  </ControlBar>
-                </ControlBar>
-                <BigPlayButton position="center" />
-                <LoadingSpinner />
-              </Player>
+                <source
+                    src={ ads?.file_url
+                    ? ads?.file_url
+                    : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"}
+                    type="application/x-mpegURL"
+                  />
+              </video>
             )}
             <Box
               sx={{
@@ -699,7 +728,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               }}
             >
               <Box
-              className="video_container_image"
+                className="video_container_image"
                 sx={{
                   position: "absolute",
                   bottom: {
@@ -721,12 +750,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 />
               </Box>
               <Box
-              className="video_container_link"
+                className="video_container_link"
                 sx={{
                   zIndex: 1,
                   objectFit: "contain",
                   position: "absolute",
-                  right: { xs: '12px', md: "12px" },
+                  right: { xs: "12px", md: "12px" },
                   display: " flex",
                   gap: { md: 2, xs: 1 },
                   color: "white",
@@ -759,7 +788,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       width: { md: "fit-content", xs: "fit-content" },
                       height: { md: "25px", xs: "20px" },
                       fontSize: "10px",
-                      
                     }}
                   />
                 </Link>
@@ -784,8 +812,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 </Link>
               </Box>
               <Box
-                className="video_container_bottom_video"
-                sx={{ 
+                className="video_container_bottom_banner"
+                sx={{
                   zIndex: 1,
                   position: "absolute",
                   cursor: "pointer",
@@ -793,10 +821,10 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     md: -10,
                     xs:
                       location.pathname.slice(0, 2) === "/" && visible === true
-                         ? 0 : -10
+                        ? 0
+                        : -10,
                   },
-                  width: { md: "100%", xs: "100%" }
-                  ,
+                  width: { md: "100%", xs: "100%" },
                 }}
               >
                 {adsSetting &&
@@ -828,11 +856,19 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 sx={{
                   display: "flex ",
                   justifyContent: "space-between",
-                  py :  0.5,
+                  py: 0.5,
                 }}
               >
-                
-                <Box sx={{ display: { xs: "none", md: "flex", justifyContent : 'end', width : '100%' } }}>
+                <Box
+                  sx={{
+                    display: {
+                      xs: "none",
+                      md: "flex",
+                      justifyContent: "end",
+                      width: "100%",
+                    },
+                  }}
+                >
                   <Button
                     variant="contained"
                     lassName="button_info"
@@ -847,7 +883,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       height: "fit-content",
                       fontSize: "10px",
                       m: { xs: 1 },
-                     
                     }}
                   >
                     <Box>
@@ -858,14 +893,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       </Typography>
                       <Typography
                         sx={{ fontSize: "10px", textTransform: "capitalize" }}
-                      >
-                      </Typography>
+                      ></Typography>
                     </Box>
                   </Button>
                   <Button
                     variant="contained"
                     lassName="button_info"
-                    startIcon={<FacebookOutlinedIcon sx={{ color : 'white' }} />}
+                    startIcon={<FacebookOutlinedIcon sx={{ color: "white" }} />}
                     sx={{
                       bgcolor: "gray",
                       boxShadow: "none",
@@ -882,12 +916,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       <Typography
                         sx={{ fontSize: "9px", textTransform: "capitalize" }}
                       >
-                         Facebook
+                        Facebook
                       </Typography>
                       <Typography
                         sx={{ fontSize: "10px", textTransform: "capitalize" }}
-                      >
-                      </Typography>
+                      ></Typography>
                     </Box>
                   </Button>
                 </Box>
@@ -895,7 +928,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             </>
           )}
         </Box>
-       {ChatBox ? (
+        {ChatBox ? (
           chatBoxIframe
         ) : (
           <CustomGrid size={12} flexDirectionStyle headerBox />
