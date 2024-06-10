@@ -77,6 +77,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   //     document.body.removeChild(script);
   //   };
   // }, []);
+  
   const apiGetByIDStream = async (idStr) => {
     const response = await apiGetStreamById(idStr);
     if (response?.success) setStream(response?.streamId);
@@ -119,6 +120,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [matches, setMatches] = useState("");
   const [account, setAccount] = useState("");
   const [hidden, setHidden] = useState(false)
+  const [style, setStyle] = useState(true)
   const apiGetAccount = async (ids) => {
     const response = await apiGetAccountById(ids);
     if (response.success) setAccount(response?.accountId);
@@ -153,7 +155,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     },
   };
 
-  let interval = 6;
+  let interval = 5;
   let timeArrow = 31;
   const [time, setTime] = useState(null);
   const [hiddenButton, setHiddenButton] = useState(false);
@@ -163,6 +165,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     if (interval < 0) return;
     return interval;
   };
+
   // const changeArrowTime = () => {
   //   timeArrow--
   //   if(timeArrow < 0) {
@@ -179,15 +182,17 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     apiGetAllStream();
   }, []);
   useEffect(() => {
-    const timeInterVal = setInterval(() => {
-      const newTime = changeTime();
-      if (newTime === undefined) return;
-      setTime(newTime);
-    }, 1000);
-    return () => {
-      clearInterval(timeInterVal);
-    };
-  }, []);
+     if(hidden){
+      const timeInterVal = setInterval(() => {
+        const newTime = changeTime();
+        if (newTime === undefined || newTime < 0) return;
+        setTime(newTime);
+      }, 1000);
+      return () => {
+        clearInterval(timeInterVal);
+      };
+     }
+  }, [hidden]);
 
   //   useEffect(() => {
   //     const timeNextArrow = setInterval(() => {
@@ -611,11 +616,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               {/* {changeSource !== sources.bunnyTrailer && <Button variant="contained" style={{ position : 'absolute', zIndex : 1, 
         color : 'white', fontSize : '10px', textTransform : 'capitalize', cursor : 'default',
         right : { md : '68%'}, width : 'fit-cotent', margin : '10px',  height: '30px', backgroundColor : 'black' }}>Video sẽ tự động bỏ qua sau {timeNext}</Button>} */}
-              {ads && stream ? (
+              { ads && stream ? (
                 time === 0 ||
-                time === undefined ||
-                time === null ||
-                time === NaN ? (
+                time === undefined
+                 
+              ? (
                   <Button
                     id="ad-skip-button"
                     endIcon={<SkipNextIcon />}
@@ -639,7 +644,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       backgroundColor: "black",
                     }}
                   >
-                    Bỏ qua
+                  Bỏ qua
                   </Button>
                 ) : (
                   <Button
@@ -659,7 +664,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       backgroundColor: "black",
                     }}
                   >
-                    Có thể bỏ qua {time}
+                    Có thể bỏ qua {time ? time : 5}
                   </Button>
                 )
               ) : (
@@ -818,7 +823,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 </Link>
               </Box>
               <Box
-                className="video_container_bottom_banner"
+                className={style ? "video_container_bottom_banner" : ""}
                 sx={{
                   zIndex: 1,
                   position: "absolute",
@@ -845,6 +850,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                             objectFit: "contain",
                             height: "fit-content",
                           }}
+                          
                           alt=""
                         />
                       ) : (
