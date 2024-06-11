@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: 'https://sovo2.link/api',
+  baseURL: 'https://xem1.sovo2.link/api',
   // baseURL: 'http://localhost:8080/api/',
 
 
