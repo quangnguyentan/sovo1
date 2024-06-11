@@ -59,15 +59,21 @@ function Home() {
           <CardVideo data={ads} dataStream={stream} titleContent blv />
         )}
       </Box>
-      <Box sx={{height : {xs : 0, xl : '20px'}}}/>
-      <Box sx={{ p: { md: 0, xs: 0 }, m: { md: 0, xs: 0 }, display : {xl : 'flex', xs : 'flex', }, flexDirection : { xs : 'column', xl : 'row'} }}>
+      <Box sx={{ height: { xs: 0, xl: "20px" } }} />
+      {/* <Box
+        sx={{
+          p: { md: 0, xs: 0 },
+          m: { md: 0, xs: 0 },
+          display: { xl: "flex", xs: "flex" },
+          flexDirection: { xs: "column", xl: "row", md: "row" },
+        }}
+      >
         <Box sx={{ width: { md: "50%", xs: "100%" } }}>
           <img
             src={BannerBottomVideo}
             style={{ width: "100%", objectFit: "contain" }}
             alt=""
           />
-          
         </Box>
         <Box sx={{ width: { md: "50%", xs: "100%" } }}>
           <img
@@ -76,25 +82,31 @@ function Home() {
             alt=""
           />
         </Box>
+      </Box>
+      <Box
+        sx={{
+          p: { md: 0, xs: 0 },
+          m: { md: 0, xs: 0 },
+          display: { xl: "flex", xs: "flex" },
+          flexDirection: { xs: "column", xl: "row", md: "row" },
+        }}
+      >
+        <Box sx={{ width: { md: "50%", xs: "100%" } }}>
+          <img
+            src={BannerBottomVideo}
+            style={{ width: "100%", objectFit: "contain" }}
+            alt=""
+          />
         </Box>
-        <Box sx={{ p: { md: 0, xs: 0 }, m: { md: 0, xs: 0 }, display : {xl : 'flex', xs : 'flex', }, flexDirection : { xs : 'column', xl : 'row'} }}>
-          <Box sx={{ width: { md: "50%", xs: "100%" } }}>
-            <img
-              src={BannerBottomVideo}
-              style={{ width: "100%", objectFit: "contain" }}
-              alt=""
-            />
-            
-          </Box>
-          <Box sx={{ width: { md: "50%", xs: "100%" } }}>
-            <img
-              src={BannerBottomVideo}
-              style={{ width: "100%", objectFit: "contain" }}
-              alt=""
-            />
-          </Box>
+        <Box sx={{ width: { md: "50%", xs: "100%" } }}>
+          <img
+            src={BannerBottomVideo}
+            style={{ width: "100%", objectFit: "contain" }}
+            alt=""
+          />
         </Box>
-        <Box
+      </Box> */}
+      <Box
         sx={{ width: "100%", bgcolor: "#000000", px: 4, borderRadius: "15px " }}
       >
         <Box

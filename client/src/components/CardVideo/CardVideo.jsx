@@ -405,7 +405,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       }}
                     >
                       <Box sx={{ width: { md: "100%", xs: "100%" } }}>
-                        <Link>
+                        <Link onClick={() => {
+                          window.open(
+                            "https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236",
+                            "_blank"
+                          );
+                        }}>
                           <img
                             src={el?.file_url}
                             style={{ width: "100%", objectFit: "contain" }}
@@ -414,7 +419,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                         </Link>
                       </Box>
                       <Box sx={{ width: { md: "100%", xs: "100%" } }}>
-                        <Link to={el?.redirect_to}>
+                        <Link onClick={() => {
+                          window.open(
+                            "https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236",
+                            "_blank"
+                          );
+                        }}>
                           <img
                             src={el?.file_url}
                             style={{ width: "100%", objectFit: "contain" }}
@@ -971,14 +981,19 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       m: { xs: 1 },
                     }}
                   >
-                    <Box sx={{   }}>
+                    <Link onClick={() => {
+                      window.open(
+                        "https://t.me/chotkeocungblvhangbai",
+                        "_blank"
+                      );
+                    }}  style={{textDecoration : 'none'}}>
                       <Typography
-                        sx={{ fontSize: "9px", textTransform: "capitalize" }}
+                        sx={{ fontSize: "9px", textTransform: "capitalize", color : 'white' }}
                       >
                         Nhóm Telegram
                       </Typography>
                     
-                    </Box>
+                    </Link>
                   </Button>
                   <Button
                     variant="contained"
@@ -995,14 +1010,21 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       m: { xs: 1 },
                     }}
                   >
-                    <Box>
+                    <Link
+                    onClick={() => {
+                      window.open(
+                        "https://www.facebook.com/groups/blvhangnghien",
+                        "_blank"
+                      );
+                    }} 
+                      style={{textDecoration : 'none'}}> 
                       <Typography
-                        sx={{ fontSize: "9px", textTransform: "capitalize" }}
+                        sx={{ fontSize: "9px", textTransform: "capitalize", color : 'white' }}
                       >
-                        Facebook
+                        Nhóm Facebook
                       </Typography>
                     
-                    </Box>
+                    </Link>
                   </Button>
                 </Box>
               </Box>

@@ -29,12 +29,12 @@ function Banner({ data }) {
         mb: checkBanner.length > 1 ? { md: 0, xs: 8 } : "",
       }}
     >
-      <Box
+      {/* <Box
         sx={{
           p: { md: 0, xs: 0 },
           m: { md: 0, xs: 0 },
-          display: { xl: "flex", xs: "flex" },
-          flexDirection: { xs: "column", xl: "row" },
+          display: { xl: "flex", xs: "flex", md : 'flex' },
+          flexDirection: { xs: "column", xl: "row", md : 'row' },
         }}
       >
         <Box sx={{ width: { md: "50%", xs: "100%" } }}>
@@ -57,7 +57,8 @@ function Banner({ data }) {
           p: { md: 0, xs: 0 },
           m: { md: 0, xs: 0 },
           display: { xl: "flex", xs: "flex" },
-          flexDirection: { xs: "column", xl: "row" },
+          flexDirection: { xs: "column", xl: "row", md : 'row' },
+
         }}
       >
         <Box sx={{ width: { md: "50%", xs: "100%" } }}>
@@ -74,7 +75,7 @@ function Banner({ data }) {
             alt=""
           />
         </Box>
-      </Box>
+      </Box> */}
       {/* {data
         ?.filter((fm) => fm?.position === "TOP")
         ?.map((el) => (
