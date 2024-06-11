@@ -17,7 +17,7 @@ function AppBar() {
           </Link>
           <Menu/>
          <Link style={{ textDecoration : 'none' }}>
-          <Box className='header_info'  sx={{ maxWidth : { md : '270px', xs : 0}, minWidth : '270px', p : 1 , color : 'white', gap : 1, display: {md : 'flex', xs : 'none'}}}>
+          {/* <Box className='header_info'  sx={{ maxWidth : { md : '270px', xs : 0}, minWidth : '270px', p : 1 , color : 'white', gap : 1, display: {md : 'flex', xs : 'none'}}}>
             <PhoneIcon fontSize='large'/>
               <Box sx={{  }}>
                 <Typography  sx={{ fontSize : 16, fontWeight : 500 }}>
@@ -27,7 +27,7 @@ function AppBar() {
                   Liên hệ Telegram: @Viral_media88
                 </Typography>
             </Box>
-            </Box>
+            </Box> */}
          </Link>
     </Box>
 
