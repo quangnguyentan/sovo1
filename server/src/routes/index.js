@@ -13,7 +13,7 @@ const initRoutes = (app) => {
   app.use("/api/matches", matchesRouter);
   app.use("/api/account", accountRouter);
   app.use("/api/stream", streamRouter);
-  app.use("/api/ads", adsRouter);
+  app.use("/api/banner", adsRouter);
 
 
 

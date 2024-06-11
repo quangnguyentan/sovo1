@@ -22,7 +22,7 @@ import { makeStyles } from '@mui/styles';
 import Button from "@mui/material/Button";
 import "../../index.css";
 import { useEffect, useRef, useState } from "react";
-import backgroundHeaderTitle from "../../assets/backgroundTitle.webp";
+import backgroundHeaderTitle from "../../assets/nene.png";
 import { apiGetAccountById } from "../../services/accountService";
 import { apiGetMatchesById } from "../../services/matchService";
 import {
@@ -910,6 +910,42 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   py: 0.5,
                 }}
               >
+               <Box
+                  sx={{
+                    display: {
+                      xs: "none",
+                      md: "flex",
+                      width: "100%",
+                    },
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    lassName="button_info"
+                    startIcon={<PlayArrowIcon style={{ opacity : 0.65 }} />}
+                    sx={{
+                      boxShadow: "none",
+                      bgcolor : 'red',
+                      color: "white",
+                      borderRadius: "10px",
+                      fontWeight: 600,
+                      width: "fit-content",
+                      height: "fit-content",
+                      fontSize: "10px",
+                      m: { xs: 1 },
+                    }}
+                  >
+                    <Box sx={{   }}>
+                      <Typography
+                        sx={{ fontSize: "9px", textTransform: "capitalize" }}
+                      >
+                       Cược ngay
+                      </Typography>
+                    
+                    </Box>
+                  </Button>
+                
+                </Box>
                 <Box
                   sx={{
                     display: {
@@ -923,9 +959,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   <Button
                     variant="contained"
                     lassName="button_info"
-                    startIcon={<TelegramIcon />}
+                    startIcon={<TelegramIcon color='blue' />}
                     sx={{
-                      bgcolor: "gray",
                       boxShadow: "none",
                       color: "white",
                       borderRadius: "10px",
@@ -936,23 +971,20 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       m: { xs: 1 },
                     }}
                   >
-                    <Box>
+                    <Box sx={{   }}>
                       <Typography
                         sx={{ fontSize: "9px", textTransform: "capitalize" }}
                       >
                         Nhóm Telegram
                       </Typography>
-                      <Typography
-                        sx={{ fontSize: "10px", textTransform: "capitalize" }}
-                      ></Typography>
+                    
                     </Box>
                   </Button>
                   <Button
                     variant="contained"
                     lassName="button_info"
-                    startIcon={<FacebookOutlinedIcon sx={{ color: "white" }} />}
+                    startIcon={<FacebookOutlinedIcon color='blue' />}
                     sx={{
-                      bgcolor: "gray",
                       boxShadow: "none",
                       color: "white",
                       borderRadius: "10px",
@@ -969,9 +1001,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       >
                         Facebook
                       </Typography>
-                      <Typography
-                        sx={{ fontSize: "10px", textTransform: "capitalize" }}
-                      ></Typography>
+                    
                     </Box>
                   </Button>
                 </Box>

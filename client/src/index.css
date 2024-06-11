@@ -188,6 +188,7 @@ img {
   -webkit-mask:linear-gradient(50deg, #ff6427 -2.23%, #770000 117.28%);
 }
 .button_info {
+
   /* background:  linear-gradient(96deg, #008360 -2.23%, #49EC44 117.28%); */
   background:   linear-gradient(50deg, #ff6427 -2.23%, #770000 117.28%);
 
