@@ -1,22 +1,22 @@
 import axiosConfig from "../axios";
-export const apiGetADS = () =>
+export const apiGetBanner = () =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: "/ads/",
+        url: "/banner/",
       });
       resolve(response);
     } catch (error) {
       reject(error);
     }
   });
-export const apiGetADSById = (id) =>
+export const apiGetBannerById = (id) =>
     new Promise(async (resolve, reject) => {
       try {
         const response = await axiosConfig({
           method: "GET",
-          url: `/ads/${id}`,
+          url: `/banner/${id}`,
         });
         resolve(response);
       } catch (error) {

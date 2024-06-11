@@ -9,7 +9,7 @@ import CustomCard from '../../components/CustomCard/CustomCard'
 import { useEffect, useState } from 'react'
 import { apiGetPosts } from '../../services/postService'
 import CustomSkeleton from '../../components/CustomSkeleton/CustomSkeleton'
-import { apiGetADS } from '../../services/adsService'
+import { apiGetBanner } from '../../services/bannerService'
 import { apiGetStream } from '../../services/streamService'
 
 function Home() { 
@@ -19,7 +19,7 @@ function Home() {
   const [stream, setStream] = useState('')
   const apiGetAllADS = async() => {
     
-    const response = await apiGetADS()
+    const response = await apiGetBanner()
     if(response?.success) {
       const filter = response?.ads?.filter(f => f?.root_domain === "sovo.link")?.map(el => {
         return el

@@ -33,7 +33,7 @@ import {
 } from "react-router-dom";
 import { Chip, Container, Grid, Typography } from "@mui/material";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
-import { apiGetADS } from "../../services/adsService";
+import { apiGetBanner } from "../../services/bannerService";
 
 import bannerLeft from "../../assets/banner_header_left.gif";
 import bannerRight from "../../assets/banner_header_right.gif";
@@ -122,7 +122,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     if (response?.success) setStream(response?.streamId);
   };
   const apiGetAllADS = async () => {
-    const response = await apiGetADS();
+    const response = await apiGetBanner();
     if (response?.success) {
       const filter = response?.ads
         ?.filter(

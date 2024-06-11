@@ -8,7 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import BannerLeft from '../../assets/banner_left.gif'
 import BannerRight from '../../assets/banner_right.gif'
 import React, { useEffect, useState } from 'react'
-import { apiGetADS } from '../../services/adsService'
+import { apiGetBanner } from '../../services/bannerService'
 import { Button, Chip, Modal } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 import popup from '../../assets/popup.gif'
@@ -17,6 +17,8 @@ function Public() {
   const [ads, setAds] = useState('')
   const location = useLocation()
   const [open, setOpen] = React.useState(false);
+
+
   const style = {
     position: 'absolute',
     top: '50%',
@@ -35,7 +37,7 @@ function Public() {
   };
   const apiGetAllADS = async() => {
    
-    const response = await apiGetADS()
+    const response = await apiGetBanner()
     if(response?.success) {
       const filter = response?.ads?.filter(f => f?.root_domain === "sovo.link")?.map(el => {
         return el
