@@ -21,7 +21,7 @@ function AppBar() {
       m : 2
     }, backgroundColor : '#2b2b2b' , px : { sm : 0, md : 2, xs : 1, xl : 32}, display : 'flex', alignItems : 'center', justifyContent : 'space-between'  }} >
           <Link to="/" >
-            <img src={logo} style={{ objectFit : 'cover', minWidth : '160px', display : 'flex', alignItems : 'center' }} alt="logo"  width={200} height={70}  />
+            <img src={logo} style={{ objectFit : 'cover', minWidth : '160px', display : 'flex', alignItems : 'center' }} alt="logo"  width={230} height={70}  />
           </Link>
           <Menu/>
          <Link style={{ textDecoration : 'none' }}>

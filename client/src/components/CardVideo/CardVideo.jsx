@@ -390,7 +390,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         xs: 0,
         bgcolor: "#1B1C21",
         p: 0,
-        pt: 1,
+        pt: {xl : 1, xs : 0},
       }}
     >
       {!titleContent && matches && (
@@ -458,7 +458,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             <Box
               sx={{
                 py: 4,
-                display: { md: "flex", xs: "flex" },
+                display: { md: "flex", xs: "none" },
                 gap: 4,
                 justifyContent: "space-between",
                 px: { xs: 1, md: 8 },
@@ -929,7 +929,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                <Box
                   sx={{
                     display: {
-                      xs: "none",
+                      xs: "flex",
                       md: "flex",
                       width: "100%",
                     },
@@ -943,7 +943,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       boxShadow: "none",
                       bgcolor : 'red',
                       color: "white",
-                      borderRadius: "10px",
                       fontWeight: 600,
                       width: "fit-content",
                       height: "fit-content",
@@ -965,7 +964,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 <Box
                   sx={{
                     display: {
-                      xs: "none",
+                      xs: "flex",
                       md: "flex",
                       justifyContent: "end",
                       width: "100%",
@@ -983,7 +982,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       fontWeight: 600,
                       width: "fit-content",
                       height: "fit-content",
-                      fontSize: "10px",
                       m: { xs: 1 },
                     }}
                   >
@@ -996,7 +994,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       <Typography
                         sx={{ fontSize: "9px", textTransform: "capitalize", color : 'white' }}
                       >
-                        Nhóm Telegram
+                        Telegram
                       </Typography>
                     
                     </Link>
@@ -1010,7 +1008,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       color: "white",
                       borderRadius: "10px",
                       fontWeight: 600,
-                      width: "fit-content",
+                      width: 'fit-content',
                       height: "fit-content",
                       fontSize: "10px",
                       m: { xs: 1 },
@@ -1025,9 +1023,9 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     }} 
                       style={{textDecoration : 'none'}}> 
                       <Typography
-                        sx={{ fontSize: "9px", textTransform: "capitalize", color : 'white' }}
+                        sx={{ fontSize: {md : "9px", xs : '9px'}, textTransform: "capitalize", color : 'white' }}
                       >
-                        Nhóm Facebook
+                       Facebook
                       </Typography>
                     
                     </Link>

@@ -254,10 +254,12 @@ function CustomGrid({
                                       px: 1,
                                     }}
                                   >
-                                    <Box sx={{ flexDirection: "column" }}>
+                                    <Box sx={{ flexDirection: "column",flexDirection: "column",
+                                        height: "50px",
+                                        py: 1, }}>
                                       <img
-                                        style={{ objectFit: "cover", width :"18px",
-                                          height: "18px" }}
+                                        style={{ objectFit: "cover", width :"25px",
+                                          height: "25px" }}
                                         src={el?.host_club_logo_url}
                                         alt=""
                                       />
@@ -305,8 +307,8 @@ function CustomGrid({
                                     >
                                       <img
                                         
-                                        style={{ objectFit: "cover", width:"18px",
-                                          height:"18px" }}
+                                        style={{ objectFit: "cover", width:"25px",
+                                          height:"25px" }}
                                         src={el?.guest_club_logo_url}
                                         alt=""
                                       />
@@ -496,14 +498,18 @@ function CustomGrid({
                                       alignItems: "center",
                                       justifyContent: "space-between",
                                       px: 2,
-                                      py: 1,
+
+                                      pb: 2,
                                     }}
                                   >
-                                    <Box sx={{ flexDirection: "column" }}>
+                                    <Box sx={{ 
+                                     flexDirection: "column",
+                                        height: "50px",
+                                        py: 1, }}>
                                       <img
                                      
-                                        style={{ objectFit: "cover", width :"18px",
-                                          height: "18px" }}
+                                        style={{ objectFit: "cover", width :"40px",
+                                          height: "40px" }}
                                         src={el?.host_club_logo_url}
                                         alt=""
                                       />
@@ -546,13 +552,13 @@ function CustomGrid({
                                       sx={{
                                         flexDirection: "column",
                                         height: "50px",
-                                        py: 0.5,
+                                        py: 1,
                                       }}
                                     >
                                       <img
                                         
-                                        style={{ objectFit: "cover", width:"18px",
-                                          height:"18px" }}
+                                        style={{ objectFit: "cover", width:"40px",
+                                          height:"40px" }}
                                         src={el?.guest_club_logo_url}
                                         alt=""
                                       />
@@ -740,11 +746,14 @@ function CustomGrid({
                                       py: 1,
                                     }}
                                   >
-                                    <Box sx={{ flexDirection: "column" }}>
+                                    <Box sx={{ 
+                                     flexDirection: "column",
+                                        height: "50px",
+                                        pb: 0.5, }}>
                                       <img
                                      
-                                        style={{ objectFit: "cover", width :"18px",
-                                          height: "18px" }}
+                                        style={{ objectFit: "cover", width :"40px",
+                                          height: "40px" }}
                                         src={el?.host_club_logo_url}
                                         alt=""
                                       />
@@ -787,13 +796,13 @@ function CustomGrid({
                                       sx={{
                                         flexDirection: "column",
                                         height: "50px",
-                                        py: 0.5,
+                                        pb: 0.5,
                                       }}
                                     >
                                       <img
                                         
-                                        style={{ objectFit: "cover", width:"18px",
-                                          height:"18px" }}
+                                        style={{ objectFit: "cover", width:"40px",
+                                          height:"40px" }}
                                         src={el?.guest_club_logo_url}
                                         alt=""
                                       />
