@@ -118,7 +118,6 @@ function Home() {
             style={{
               display: { md: "flex", xs: "none" },
               objectFit: "contain",
-
             }}
           />
         </Box>

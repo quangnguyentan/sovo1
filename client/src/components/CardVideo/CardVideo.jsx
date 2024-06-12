@@ -336,6 +336,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     waitInitElement("#my-video_html5_api").then((rs) => {
       const video = document.getElementById("my-video_html5_api");
       video.play();
+      console.log(video)
     });
   };
 
@@ -372,17 +373,18 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     script.async = true;
     document.body.appendChild(script);
     document.head.appendChild(link);
-    window.addEventListener("DOMContentLoaded", handleClick);
+    window.addEventListener("DOMContentLoaded",waitButtonClick);
+    
     handleChangeFullscreen();
-    waitButtonClick()
+
 
     // Cleanup function
     return () => {
       document.body.removeChild(script);
       document.head.removeChild(link);
-      window.removeEventListener("DOMContentLoaded", handleClick);
+      window.removeEventListener("DOMContentLoaded", waitButtonClick);
     };
-  }, [handleClick]);
+  }, [waitButtonClick]);
   return (
     <Box
       sx={{
@@ -747,6 +749,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   controls="controls"
                   preload="auto"
                   playsInline
+
                   poster={!stream[0]?.m3u8_url ? qc : ''}
                   videoWidth="100%"
                   videoHeight="100%"
