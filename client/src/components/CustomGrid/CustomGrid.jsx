@@ -142,7 +142,6 @@ function CustomGrid({
           }}
         >
           <Grid
-            sx={{ position: "relative" }}
             container
             rowSpacing={3}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
@@ -184,6 +183,7 @@ function CustomGrid({
                                     transform: "translateY(-3px)",
                                     transitionDuration: "5s",
                                   },
+                                  py : 1.5,
                                 }}
                               >
                                
@@ -206,7 +206,7 @@ function CustomGrid({
                                     WebkitBoxOrient: "vertical",
                                     color: "white",
                                     display: "flex",
-                                    alignItems: "center",
+                                    alignItems: "end",
                                     justifyContent: "space-between",
                                     px: 2,
                                     // borderTopRightRadius: "10px",
@@ -250,7 +250,7 @@ function CustomGrid({
                                     sx={{
                                       color: "white",
                                       display: "flex",
-                                      alignItems: "end",
+                                      alignItems: "center",
                                       justifyContent: "space-between",
                                       px: 1,
                                     }}
@@ -333,7 +333,6 @@ function CustomGrid({
                                       alignItems: "end",
                                       justifyContent: "space-between",
                                       px: 2,
-                                      py : 0.5
                                     }}
                                   >
                                     <Typography
