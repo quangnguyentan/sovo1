@@ -335,7 +335,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const waitButtonClick = () => {
     waitInitElement("#my-video_html5_api").then((rs) => {
       const video = document.getElementById("my-video_html5_api");
-      console.log(video);
       video.play();
     });
   };
@@ -347,6 +346,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     const adSkipButton = document.getElementById("ad-skip-button");
     const userGestureEvents = ["touchend", "click"];
     const handleAdSkip = () => {
+      console.log(video)
       video.play();
     };
     userGestureEvents.forEach((event) => {
@@ -372,9 +372,10 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     script.async = true;
     document.body.appendChild(script);
     document.head.appendChild(link);
-
     window.addEventListener("DOMContentLoaded", handleClick);
     handleChangeFullscreen();
+    waitButtonClick()
+
     // Cleanup function
     return () => {
       document.body.removeChild(script);
@@ -746,8 +747,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   controls="controls"
                   preload="auto"
                   playsInline
-
-                  poster={!stream[0]?.m3u8_url ? qc : loading}
+                  poster={!stream[0]?.m3u8_url ? qc : ''}
                   videoWidth="100%"
                   videoHeight="100%"
                   data-setup="{}"
