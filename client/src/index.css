@@ -183,8 +183,8 @@ img {
   margin: 0;
 }
 .tran_hot_banner {
-  filter:hue-rotate(-50deg);
-  -webkit-mask:linear-gradient(50deg, #ff6427 -2.23%, #770000 117.28%);
+  
+  color: white;
 }
 .show_more_banner {
   filter:hue-rotate(-50deg);

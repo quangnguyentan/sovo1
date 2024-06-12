@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import CardVideo from "../../components/CardVideo/CardVideo";
 import CustomGrid from "../../components/CustomGrid/CustomGrid";
-import TranHotBanner from "../../assets/tran_hot.png";
+import TranHotBanner from "../../assets/Trận đấu hot-01.png";
 import btnMore from "../../assets/btnMore.webp";
 import BannerBottomVideo from "../../assets/banner_video.gif";
 import CustomCard from "../../components/CustomCard/CustomCard";
@@ -110,15 +110,16 @@ function Home() {
         sx={{ width: "100%", bgcolor: "#000000", px: 4, borderRadius: "15px " }}
       >
         <Box
-          sx={{ py: 2, justifyContent: "center" }}
-          className="tran_hot_banner"
+          sx={{ py: 2, justifyContent: "center"}}
         >
           <img
+            className="tran_hot_banner"
             src={TranHotBanner}
             alt=""
             style={{
               display: { md: "flex", xs: "none" },
               objectFit: "contain",
+
             }}
           />
         </Box>

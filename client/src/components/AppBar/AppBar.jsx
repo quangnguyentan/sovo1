@@ -5,11 +5,19 @@ import '../../index.css';
 import Typography from '@mui/material/Typography';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom';
+import header from '../../assets/ĐƯỜNG VIỀN TRÊN TRẬN-01.png'
 function AppBar() {
-
+  const css = {
+    container: {
+      backgroundImage:
+        `url('${header}')`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+    },
+  };
 
   return (
-    <Box sx={{ position : 'relative', height : (theme) =>theme.football.appBarHeight, width: '100%', overflowY : 'hidden', overflowX: 'auto', '&::webkit-scrollbar-track' : {
+    <Box style={css.container} sx={{ position : 'relative', height : (theme) =>theme.football.appBarHeight, width: '100%', overflowY : 'hidden', overflowX: 'auto', '&::webkit-scrollbar-track' : {
       m : 2
     }, backgroundColor : '#2b2b2b' , px : { sm : 0, md : 2, xs : 1, xl : 32}, display : 'flex', alignItems : 'center', justifyContent : 'space-between'  }} >
           <Link to="/" >

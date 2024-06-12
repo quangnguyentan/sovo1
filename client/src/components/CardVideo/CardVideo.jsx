@@ -8,7 +8,7 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import { Helmet } from "react-helmet";
 import qc from "../../assets/qc.jpg";
-
+import aftermatch from '../../assets/ẢNH trước trận đấu-01.jpg'
 import {
   Player,
   BigPlayButton,
@@ -770,6 +770,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     ? ads?.file_url
                     : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"
                 }
+                poster={aftermatch}
                 preload="auto"
                 className="customIcon"
               >

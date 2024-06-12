@@ -119,7 +119,6 @@ function CustomGrid({
       <Box
       style={style.container}
         sx={{
-          mb: 1,
           color: "white",
           width: "100%",
           border: 1,
@@ -160,7 +159,7 @@ function CustomGrid({
                             sm={4}
                             md={12}
                             key={el?.id}
-                            sx={{ py: 1 }}
+                            sx={{ py: 0.8 }}
                           >
                             <Link
                               key={el?.id}
@@ -270,6 +269,7 @@ function CustomGrid({
                                           display: "-webkit-box",
                                           WebkitLineClamp: "1",
                                           WebkitBoxOrient: "vertical",
+                                         
                                         }}
                                       >
                                         {el?.host_club_name}
@@ -333,6 +333,7 @@ function CustomGrid({
                                       alignItems: "end",
                                       justifyContent: "space-between",
                                       px: 2,
+                                      pt : 1
                                     }}
                                   >
                                     <Typography
@@ -364,7 +365,7 @@ function CustomGrid({
                                       style={css.container}
                                         className="button_info"
                                         sx={{
-                                         mt : 1,
+                                          mt : 0.8,
                                           borderRadius: "10px",
                                           fontWeight: 700,
                                           width: "90px",
@@ -514,6 +515,7 @@ function CustomGrid({
                                           display: "-webkit-box",
                                           WebkitLineClamp: "1",
                                           WebkitBoxOrient: "vertical",
+                                           width : '80px'
                                         }}
                                       >
                                         {el?.host_club_name}
@@ -562,6 +564,7 @@ function CustomGrid({
                                           display: "-webkit-box",
                                           WebkitLineClamp: "1",
                                           WebkitBoxOrient: "vertical",
+                                           width : '80px'
                                         }}
                                       >
                                         {el?.guest_club_name}
@@ -582,7 +585,7 @@ function CustomGrid({
                                     }}
                                   >
                                     <Typography
-                                      sx={{ fontSize: "15px", fontWeight: 600 }}
+                                      sx={{ fontSize: "15px", fontWeight: 600, pt : 2 }}
                                     >
                                       {ls?.includes(el?.id) ? (
                                         <Box
@@ -590,6 +593,7 @@ function CustomGrid({
                                             display: "flex",
                                             alignItems: "center",
                                             gap: 1,
+                                            
                                           }}
                                         >
                                           <Box className="truc_tiep"></Box>
@@ -604,7 +608,7 @@ function CustomGrid({
                                       rel="noopener noreferrer"
                                       onClick={(e) => e.stopPropagation()}
                                       to={linkSetBit}
-                                      style={{ textDecoration: "none" }}
+                                      style={{ textDecoration: "none", paddingTop : 12 }}
                                     >
                                       <Chip
                                         style={css.container}
@@ -615,7 +619,7 @@ function CustomGrid({
                                           borderRadius: "10px",
                                           fontWeight: 600,
                                           width: "90px",
-                                          height: "30px",
+                                          height: "25px",
                                           fontSize: "10px",
                                         }}
                                       />
@@ -752,6 +756,7 @@ function CustomGrid({
                                           display: "-webkit-box",
                                           WebkitLineClamp: "1",
                                           WebkitBoxOrient: "vertical",
+                                           width : '80px'
                                         }}
                                       >
                                         {el?.host_club_name}
@@ -800,6 +805,7 @@ function CustomGrid({
                                           display: "-webkit-box",
                                           WebkitLineClamp: "1",
                                           WebkitBoxOrient: "vertical",
+                                           width : '80px'
                                         }}
                                       >
                                         {el?.guest_club_name}
@@ -820,7 +826,7 @@ function CustomGrid({
                                     }}
                                   >
                                     <Typography
-                                      sx={{ fontSize: "15px", fontWeight: 600 }}
+                                      sx={{ fontSize: "15px", fontWeight: 600, pt : 2 }}
                                     >
                                       {ls?.includes(el?.id) ? (
                                         <Box
@@ -842,7 +848,7 @@ function CustomGrid({
                                       rel="noopener noreferrer"
                                       onClick={(e) => e.stopPropagation()}
                                       to={linkSetBit}
-                                      style={{ textDecoration: "none" }}
+                                      style={{ textDecoration: "none", paddingTop : 12 }}
                                     >
                                       <Chip
                                       style={css.container}
@@ -853,7 +859,7 @@ function CustomGrid({
                                           borderRadius: "10px",
                                           fontWeight: 600,
                                           width: "90px",
-                                          height: "30px",
+                                          height: "25px",
                                           fontSize: "10px",
                                         }}
                                       />
