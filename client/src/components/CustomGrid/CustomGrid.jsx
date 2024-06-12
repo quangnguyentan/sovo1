@@ -20,7 +20,7 @@ import { apiGetMatches } from "../../services/matchService";
 import { useEffect, useState } from "react";
 import { apiGetAccount } from "../../services/accountService";
 import { apiGetStream } from "../../services/streamService";
-import aftermatch from '../../assets/after_match.png'
+import aftermatch from '../../assets/Khung tran dau-02.png'
 import buttonBit from '../../assets/Khung tran dau-01.png'
 import khung from '../../assets/ĐƯỜNG VIỀN TRÊN TRẬN-01.png'
 
