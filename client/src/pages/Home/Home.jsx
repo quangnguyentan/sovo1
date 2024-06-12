@@ -138,7 +138,7 @@ function Home() {
           />
         </Box>
       </Box>
-      <Box
+      {/* <Box
         sx={{
           width: "100%",
           py: { md: 1, xs: 0 },
@@ -179,7 +179,7 @@ function Home() {
             />
           </Box>
         </Box>
-      </Box>
+      </Box> */}
 
       {/* {posts ? <CustomCard data={posts} title={'Soi kèo bóng đá'}/> : ''} */}
     </Container>

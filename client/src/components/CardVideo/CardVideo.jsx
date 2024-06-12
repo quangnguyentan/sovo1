@@ -607,16 +607,20 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   fontSize: { md: "17px", xs: "12px" },
                   textTransform: "capitalize",
                   display: { md: "flex", xs: "inline-block" },
+                    fontWeight: 600,
+                      color : 'white'
                 }}
               >
                 {matches[0]?.tournament_name}
               </Typography>
-              <Box sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex",  }}>
                 <Typography
                   sx={{
                     fontSize: { md: "15px", xs: "12px" },
                     textTransform: "capitalize",
                     display: { md: "flex", xs: "inline-block" },
+                    fontWeight: 600,
+                    color : 'white'
                   }}
                 >
                   Người bình luận:&nbsp;
@@ -627,6 +631,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     fontSize: { md: "15px", xs: "12px" },
                     textTransform: "capitalize",
                     display: { md: "flex", xs: "inline-block" },
+                     fontWeight: 600,
+                      color : 'white'
                   }}
                 >
                   {account[0]?.name}
