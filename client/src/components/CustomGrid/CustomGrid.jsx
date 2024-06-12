@@ -15,12 +15,15 @@ import {
   useParams,
 } from "react-router-dom";
 import path from "../../utils/path";
-import { Button, Container } from "@mui/material";
+import { Button, Container, css } from "@mui/material";
 import { apiGetMatches } from "../../services/matchService";
 import { useEffect, useState } from "react";
 import { apiGetAccount } from "../../services/accountService";
 import { apiGetStream } from "../../services/streamService";
 import aftermatch from '../../assets/after_match.png'
+import buttonBit from '../../assets/Khung tran dau-01.png'
+import khung from '../../assets/ĐƯỜNG VIỀN TRÊN TRẬN-01.png'
+
 function CustomGrid({
   size,
   flexDirectionStyle,
@@ -40,6 +43,22 @@ function CustomGrid({
     heroContainer: {
       backgroundImage:
         `url('${aftermatch}')`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+    },
+  };
+  const css = {
+    container: {
+      backgroundImage:
+        `url('${buttonBit}')`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+    },
+  };
+  const style = {
+    container: {
+      backgroundImage:
+        `url('${khung}')`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "100% 100%",
     },
@@ -98,6 +117,7 @@ function CustomGrid({
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Box
+      style={style.container}
         sx={{
           mb: 1,
           color: "white",
@@ -342,6 +362,7 @@ function CustomGrid({
                                       style={{ textDecoration: "none",  height : '34px' }}
                                     >
                                       <Button
+                                      style={css.container}
                                         className="button_info"
                                         sx={{
                                          mt : 1,
@@ -587,6 +608,8 @@ function CustomGrid({
                                       style={{ textDecoration: "none" }}
                                     >
                                       <Chip
+                                        style={css.container}
+
                                         label="Đặt Cược"
                                         className="button_info"
                                         sx={{
@@ -823,6 +846,8 @@ function CustomGrid({
                                       style={{ textDecoration: "none" }}
                                     >
                                       <Chip
+                                      style={css.container}
+
                                         label="Đặt Cược"
                                         className="button_info"
                                         sx={{

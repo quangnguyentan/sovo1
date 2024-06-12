@@ -13,7 +13,7 @@ import { apiGetBanner } from "../../services/bannerService";
 import { apiGetStream } from "../../services/streamService";
 
 function Home() {
-  const [visible, setVisible] = useState(6);
+  const [visible, setVisible] = useState(12);
   const [posts, setPosts] = useState("");
   const [ads, setAds] = useState("");
   const [stream, setStream] = useState("");

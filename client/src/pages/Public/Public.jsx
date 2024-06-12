@@ -12,12 +12,13 @@ import { apiGetBanner } from '../../services/bannerService'
 import { Button, Chip, Modal } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 import popup from '../../assets/popup.gif'
+import loading1 from '../../assets/loading1.webp'
 import '../../index.css'
 function Public() {
   const [ads, setAds] = useState('')
   const location = useLocation()
   const [open, setOpen] = React.useState(false);
-
+  const [loading, setLoading] = useState(false)
 
   const style = {
     position: 'absolute',
@@ -26,11 +27,11 @@ function Public() {
     transform: 'translate(-50%, -50%)',
     width: '200px',
   };
-  useEffect(() => {
-    setTimeout(() => {
-      setOpen(true);
-    }, 1000) // Mở modal khi trang được tải
-  }, [location]); // [] là mảng dependencies rỗng, nghĩa là sẽ chỉ gọi hàm useEffect này một lần sau khi component được mount
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setOpen(true);
+  //   }, 1000) // Mở modal khi trang được tải
+  // }, [location]); // [] là mảng dependencies rỗng, nghĩa là sẽ chỉ gọi hàm useEffect này một lần sau khi component được mount
   
   const handleClose = () => {
     setOpen(false);
@@ -46,11 +47,20 @@ function Public() {
     }
   }
   useEffect(() => {
-    apiGetAllADS()
+    setLoading(true)
+   const timer =  setTimeout(() => {
+      apiGetAllADS()
+      setLoading(false)
+
+    }, 1000)
+    return () => clearTimeout(timer);
   }, [])
+  
   return (
    <>
- {ads && <Container disableGutters maxWidth={false}>
+ {loading ? <Box sx={{ width : '100%', height : '100vh'}}>
+  <img src={loading1}  style={{ width : '100%' , height : '100%', objectFit : 'cover' }}/>
+ </Box> : ads && <Container disableGutters maxWidth={false}>
      {/* <div>
      <Modal
        open={open}

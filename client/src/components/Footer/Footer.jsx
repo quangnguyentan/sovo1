@@ -143,7 +143,7 @@ function Footer() {
             sx={{
               border: "1",
               borderColor: "white",
-              width: "calc(100% - 500px)",
+              width: "calc(100% - 600px)",
               left: "15%",
               position: "absolute",
             }}

@@ -8,6 +8,7 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import { Helmet } from "react-helmet";
 import qc from "../../assets/qc.jpg";
+
 import {
   Player,
   BigPlayButton,
@@ -25,6 +26,9 @@ import { useEffect, useRef, useState } from "react";
 import backgroundHeaderTitle from "../../assets/nene.png";
 import { apiGetAccountById } from "../../services/accountService";
 import { apiGetMatchesById } from "../../services/matchService";
+// import loading from "../../assets/loading.gif";
+import loading from "../../assets/loading1.webp";
+
 import {
   Link,
   unstable_HistoryRouter,
@@ -735,12 +739,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   class="video-js"
                   controls="controls"
                   preload="auto"
-                  autoPlay="autoPlay"
                   playsInline
-                  poster={!stream[0]?.m3u8_url ? qc : ""}
+
+                  poster={!stream[0]?.m3u8_url ? qc : loading}
                   videoWidth="100%"
                   videoHeight="100%"
                   data-setup="{}"
+                  fluid={true}
                   height="inherit"
                 >
                   <source

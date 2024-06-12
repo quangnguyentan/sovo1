@@ -109,8 +109,11 @@ body {
   opacity: 0 ;
 }
 
-.vjs-big-play-button{
-  display: block;
+.video-js button{
+  display: none !important;
+}
+.vjs-loading-spinner{
+  display: none !important;
 }
 .vjs-modal-dialog-content{
   display: none;
