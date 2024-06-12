@@ -754,7 +754,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               )}
             </Box>
           )}
-          <button onclick="pauseVid()" type="button">Pause Video</button>
           <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
             {visible && stream && (
               <Box
