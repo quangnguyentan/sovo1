@@ -113,7 +113,6 @@ function Home() {
           sx={{ py: 2, justifyContent: "center"}}
         >
           <img
-            className="tran_hot_banner"
             src={TranHotBanner}
             alt=""
             style={{
