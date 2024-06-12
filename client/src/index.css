@@ -101,22 +101,22 @@ body {
 }
 
 .vjs-control-bar{
-  top: 0;
-  transition: none;
+  top: 0 !important;
+  transition: none !important;
 }
 
 .vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar{
-  opacity: 0 ;
+  opacity: 0 !important;
 }
 
-.video-js .vjs-big-play-button{
+/* .video-js .vjs-big-play-button{
   display: none !important;
-}
+} */
 .vjs-loading-spinner{
   display: none !important;
 }
 .vjs-modal-dialog-content{
-  display: none;
+  display: none !important;
 }
 .hidden_play{
   display: none !important;

@@ -336,9 +336,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     waitInitElement("#my-video_html5_api").then((rs) => {
       const video = document.getElementById("my-video_html5_api");
       const myVideo = document.getElementById("my-video");
+      
       if(video){
       video.play();
       }
+      console.log(video)
       if(myVideo){
         myVideo.classList.remove("vjs-paused");
         myVideo.classList.add("vjs-playing");
@@ -752,7 +754,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               )}
             </Box>
           )}
-
+          <button onclick="pauseVid()" type="button">Pause Video</button>
           <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
             {visible && stream && (
               <Box
