@@ -333,11 +333,11 @@ function CustomGrid({
                                       alignItems: "end",
                                       justifyContent: "space-between",
                                       px: 2,
-
+                                      py : 0.5
                                     }}
                                   >
                                     <Typography
-                                      sx={{ fontSize: "15px", fontWeight: 600, pt : 1 }}
+                                      sx={{ fontSize: "15px", fontWeight: 600 }}
                                     >
                                       {ls?.includes(el?.id) ? (
                                         <Box
@@ -359,7 +359,7 @@ function CustomGrid({
                                       rel="noopener noreferrer"
                                       onClick={(e) => e.stopPropagation()}
                                       to={linkSetBit}
-                                      style={{ textDecoration: "none",  height : '34px' }}
+                                      style={{ textDecoration: "none",  height : '28px' }}
                                     >
                                       <Button
                                       style={css.container}
@@ -369,7 +369,7 @@ function CustomGrid({
                                           borderRadius: "10px",
                                           fontWeight: 700,
                                           width: "90px",
-                                          height: "30px",
+                                          height: "25px",
                                           fontSize: "10px",
                                           color : 'black',
                                           fontSize : '8px'
