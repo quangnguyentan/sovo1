@@ -335,14 +335,24 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const waitButtonClick = () => {
     waitInitElement("#my-video_html5_api").then((rs) => {
       const video = document.getElementById("my-video_html5_api");
+      const myVideo = document.getElementById("my-video");
+      if(video){
       video.play();
+      }
+      if(myVideo){
+        myVideo.classList.remove("vjs-paused");
+        myVideo.classList.add("vjs-playing");
+      }
+
       const controlBar = document.querySelector(
         ".vjs-control-bar > :first-child"
       );
       if (controlBar) {
         controlBar.classList.remove("vjs-paused");
         controlBar.classList.add("vjs-playing");
+      
       }
+
     });
   };
 
@@ -754,14 +764,14 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 <video
                   id="my-video"
                   class="video-js"
-                  controls="controls"
+                  controls={true}
                   preload="auto"
+                  autoPlay="autoPlay"
                   playsInline
                   poster={!stream[0]?.m3u8_url ? qc : ""}
                   videoWidth="100%"
                   videoHeight="100%"
                   data-setup="{}"
-                  height="inherit"
                 >
                   <source
                     src={stream[0]?.m3u8_url}
