@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import CardVideo from "../../components/CardVideo/CardVideo";
 import CustomGrid from "../../components/CustomGrid/CustomGrid";
-import TranHotBanner from "../../assets/Trận đấu hot-01.png";
+import TranHotBanner from "../../assets/tranhot.png";
 import btnMore from "../../assets/btnMore.webp";
 import BannerBottomVideo from "../../assets/banner_video.gif";
 import CustomCard from "../../components/CustomCard/CustomCard";
