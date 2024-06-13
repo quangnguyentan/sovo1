@@ -17,6 +17,7 @@ function Home() {
   const [posts, setPosts] = useState("");
   const [ads, setAds] = useState("");
   const [stream, setStream] = useState("");
+
   const apiGetAllADS = async () => {
     const response = await apiGetBanner();
     if (response?.success) {

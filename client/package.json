@@ -33,6 +33,7 @@
     "react-router-dom": "^6.23.1",
     "react-script-tag": "^1.1.2",
     "react-show-more-text": "^1.7.1",
+    "react-sticky-el": "^2.1.0",
     "react-toastify": "^10.0.5",
     "reactstrap": "^9.2.2",
     "redux": "^5.0.1",

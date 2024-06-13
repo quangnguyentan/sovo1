@@ -14,7 +14,7 @@ function Marquee() {
   return (
     <Box style={css.container} sx={{ height : (theme) => theme.football.marqueeHeight, bgcolor : 'darkred', color : 'white', alignContent : 'center', display : 'flex', alignItems : 'center', p : 0}}>
        <Mar speed={120}>
-          <Typography sx={{ fontWeight : 600, fontSize : 16, color : 'black' }}>
+          <Typography sx={{ fontWeight : 600, fontSize : 16, color : 'darkred' }}>
             Thông báo: Hiện tại đang có rất nhiều bên đã giả mạo SoVo TV để lừa đối tác, Quí đối tác vui lòng liên hệ Telegram chính chủ để Quảng Cáo nhé.
           </Typography>
         </Mar>
