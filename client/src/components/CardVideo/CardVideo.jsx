@@ -788,11 +788,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   poster={!stream[0]?.m3u8_url ? qc : ""}
                   videoWidth="100%"
                   videoHeight="100%"
-                  data-setup="{}"
+                  data-setup="{'fuild' : true}"
                 >
                   <source
                     src={stream[0]?.m3u8_url}
                     type="application/x-mpegURL"
+                    label="1080p" 
+                    res="1080"
                   />
                 </video>
               </Box>
@@ -815,6 +817,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 poster={aftermatch}
                 preload="auto"
                 className="customIcon"
+                
               >
                 <ControlBar disableDefaultControls autoHide={true}>
                   <ControlBar disableDefaultControls>
