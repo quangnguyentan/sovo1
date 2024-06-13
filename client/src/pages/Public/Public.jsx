@@ -9,8 +9,8 @@ import React, { useEffect, useState } from 'react'
 import { apiGetBanner } from '../../services/bannerService'
 import { Button, Chip, Modal } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
-import popup from '../../assets/popup.gif'
-import loading1 from '../../assets/loading1.webp'
+import nen from '../../assets/nên dennnn 1-01.png'
+import loading1 from '../../assets/2.gif'
 import { useMediaQuery } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import '../../index.css'
@@ -21,7 +21,13 @@ function Public() {
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false)
   const isDesktop = useMediaQuery('(min-width: 1600px) and (min-height: 900px)');
-
+  const css = {
+    container: {
+      backgroundImage:
+        `url('${nen}')`,
+      backgroundSize: "100% 50%",
+    },
+  };
   const style = {
     position: 'absolute',
     top: '50%',
@@ -98,6 +104,7 @@ function Public() {
       <AppBar/>
       <Marquee/>
     </Box>
+    <Box  style={css.container}>
     <Container disableGutters  fixed sx={{ display : 'flex', alignItems : 'center', gap : 1, py : 1, px : location.pathname.slice(0, 2) !== '/'  ? {md : location.pathname.slice(0, 6) === "/video" ? 5 : 20, xl : location.pathname === '/top-nha-cai'  ? 0 : 5} : {md : 20, xl : 0}}}>
        <Link style={{ textDecoration : 'none' }}>
           <Button className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px' }} > Cược Ngay </Button>
@@ -140,6 +147,7 @@ function Public() {
            ))}
   
    </Box>
+    </Box>
    
     <Footer  />
   </Container>}
