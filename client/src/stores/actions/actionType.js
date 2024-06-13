@@ -4,5 +4,6 @@ const actionType = {
 
   //User
   GET_CURRENT: "GET_CURRENT",
+  GET_BANNER : 'GET_BANNER',
 };
 export default actionType;

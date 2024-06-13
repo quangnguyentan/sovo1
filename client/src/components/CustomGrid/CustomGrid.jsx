@@ -38,7 +38,7 @@ function CustomGrid({
 
   const location = useLocation();
   const linkSetBit =
-    "https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236";
+    "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242";
   const styles = {
     heroContainer: {
       backgroundImage:

@@ -182,6 +182,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     const response = await apiGetAccountById(ids);
     if (response.success) setAccount(response?.accountId);
   };
+  
   const convertDate = (dateString) => {
     if (dateString) {
       const date = new Date(dateString);
@@ -423,7 +424,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         xs: 0,
         bgcolor: "#1B1C21",
         p: 0,
-        pts: { xl: 1, xs: 0 },
+        pt: { xl: 1, xs: 0 },
       }}
     >
       {!titleContent && matches && (
@@ -445,7 +446,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                         <Link
                           onClick={() => {
                             window.open(
-                              "https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236",
+                              "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242",
                               "_blank"
                             );
                           }}
@@ -461,7 +462,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                         <Link
                           onClick={() => {
                             window.open(
-                              "https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236",
+                              "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242",
                               "_blank"
                             );
                           }}
@@ -680,8 +681,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         </Container>
       )}
      
-      {isDesktop  ?  
-        <Box
+      <Box
         sx={{
           display: { md: "flex" },
           gap: 2,
@@ -795,6 +795,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     type="application/x-mpegURL"
                     label="1080p" 
                     res="1080"
+                   
                   />
                 </video>
               </Box>
@@ -888,9 +889,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
                   style={{ textDecoration: "none" }}
-                  to="https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236"
+                  to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
                 >
                   <Chip
                     label="CƯỢC CMD68"
@@ -908,7 +908,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
                   style={{ textDecoration: "none" }}
                 >
                   <Chip
@@ -1098,422 +1097,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
           <CustomGrid size={12} flexDirectionStyle headerBox />
         )}
       </Box>
-          :  
-          <Box
-        sx={{
-          display: { md: "flex" },
-          gap: 2,
-          px: {
-            md: location.pathname !== "/" ? 2 : 0,
-            xl: location.pathname !== "/" ? 2 : 0,
-          },
-        }}
-      >
-      <Sticky>
-        <Box
-          sx={{
-            width: {
-              md: location?.pathname === "/" ? "66%" : "70%",
-              xs: "100%",
-            },
-            height: "100%",
-          }}
-        >
-          {location.pathname.slice(0, 2) !== "/" ? (
-            <Box sx={{ height: "0px" }} />
-          ) : (
-            ""
-          )}
-          {hidden && !hiddenButton && (
-            <Box
-              sx={{
-                position: "relative ",
-                display: "flex",
-                width: { md: "100%", xs: "100%" },
-                justifyContent: "space-between",
-              }}
-            >
-              {/* {changeSource !== sources.bunnyTrailer && <Button variant="contained" style={{ position : 'absolute', zIndex : 1, 
-        color : 'white', fontSize : '10px', textTransform : 'capitalize', cursor : 'default',
-        right : { md : '68%'}, width : 'fit-cotent', margin : '10px',  height: '30px', backgroundColor : 'black' }}>Video sẽ tự động bỏ qua sau {timeNext}</Button>} */}
-              {ads && stream ? (
-                time === 0 || time === undefined ? (
-                  <Button
-                    id="ad-skip-button"
-                    endIcon={<SkipNextIcon />}
-                    onClick={() => {
-                      waitButtonClick();
-                      setVisible(true);
-                      setHiddenButton(true);
-                    }}
-                    variant="contained"
-                    style={{
-                      position: "absolute",
-                      zIndex: 1,
-                      color: "white",
-                      fontSize: "10px",
-                      textTransform: "capitalize",
-                      cursor: "pointer",
-                      right: 10,
-                      width: "fit-content",
-                      margin: "25px",
-                      height: "30px",
-                      backgroundColor: "black",
-                    }}
-                  >
-                    Bỏ qua
-                  </Button>
-                ) : (
-                  <Button
-                    endIcon={<SkipNextIcon />}
-                    variant="contained"
-                    style={{
-                      position: "absolute",
-                      zIndex: 1,
-                      color: "white",
-                      fontSize: "10px",
-                      textTransform: "capitalize",
-                      cursor: "default",
-                      right: 10,
-                      width: "fit-content",
-                      margin: "25px",
-                      height: "30px",
-                      backgroundColor: "black",
-                    }}
-                  >
-                    Có thể bỏ qua {time ? time : 5}
-                  </Button>
-                )
-              ) : (
-                ""
-              )}
-            </Box>
-          )}
-          <Box sx={{ width: "100%", height: "100%", position: "relative", }}>
-            {visible && stream && (
-              <Box
-                className="video_container"
-                sx={{
-                  height: { md: "470px" },
-                }}
-              >
-                <video
-                  id="my-video"
-                  class="video-js"
-                  controls={true}
-                  preload="auto"
-                  autoPlay="autoPlay"
-                  playsInline
-                  poster={!stream[0]?.m3u8_url ? qc : ""}
-                  videoWidth="100%"
-                  videoHeight="100%"
-                  data-setup="{}"
-                >
-                  <source
-                    src={stream[0]?.m3u8_url}
-                    type="application/x-mpegURL"
-                  />
-                </video>
-              </Box>
-            )}
-
-            {!visible && ads && (
-              <Player
-                onPlay={() => {
-                  setHidden(true);
-                }}
-                controls={false}
-                width="100%"
-                playsInline
-                height="100%"
-                src={
-                  ads?.file_url
-                    ? ads?.file_url
-                    : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"
-                }
-                poster={aftermatch}
-                preload="auto"
-                className="customIcon"
-              >
-                <ControlBar disableDefaultControls autoHide={true}>
-                  <ControlBar disableDefaultControls>
-                    {/* <PlayToggle /> */}
-                    {/* <VolumeMenuButton /> */}
-                  </ControlBar>
-                  <ControlBar disableDefaultControls>
-                    {/* <FullscreenToggle /> */}
-                  </ControlBar>
-                </ControlBar>
-                <BigPlayButton
-                  className={hidden ? "hidden_play" : ""}
-                  position="center"
-                />
-                <LoadingSpinner />
-              </Player>
-            )}
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box
-                className="video_container_image"
-                sx={{
-                  position: "absolute",
-                  bottom: {
-                    md: 20,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : 10,
-                  },
-                  left: 12,
-                  objectFit: "contain",
-                  width: { md: "90px", xs: "50px", zIndex: 1 },
-                }}
-              >
-                <img
-                  src="https://sovotv.live/uploads/resources/images/6dabfc682d7291dbcdb56e76cd965ae6.jpg"
-                  style={{ width: "300px" }}
-                  alt=""
-                />
-              </Box>
-              <Box
-                className="video_container_link"
-                sx={{
-                  zIndex: 1,
-                  objectFit: "contain",
-                  position: "absolute",
-                  right: { xs: "12px", md: "12px" },
-                  display: " flex",
-                  gap: { md: 2, xs: 1 },
-                  color: "white",
-                  fontSize: "10px",
-                  textTransform: "capitalize",
-                  cursor: "pointer",
-                  bottom: {
-                    md: 25,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : 15,
-                  },
-                }}
-              >
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  style={{ textDecoration: "none" }}
-                  to="https://www.king368uefa.com/vi-VN/JoinNow?btag=b_749__236"
-                >
-                  <Chip
-                    label="CƯỢC CMD68"
-                    className="button_info"
-                    sx={{
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: { md: "fit-content", xs: "fit-content" },
-                      height: { md: "25px", xs: "20px" },
-                      fontSize: "10px",
-                    }}
-                  />
-                </Link>
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Chip
-                    label="CƯỢC NGAY"
-                    className="button_info"
-                    sx={{
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: { md: "fit-content", xs: "fit-content" },
-                      height: { md: "25px", xs: "20px" },
-                      fontSize: "10px",
-                    }}
-                  />
-                </Link>
-              </Box>
-              <Box
-                className={classes.video_container_bottom_banner}
-                sx={{
-                  zIndex: 1,
-                  position: "absolute",
-                  cursor: "pointer",
-                  bottom: {
-                    md: -10,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : -10,
-                  },
-                  width: { md: "100%", xs: "100%" },
-                }}
-              >
-                {adsSetting &&
-                  adsSetting?.map((el) => (
-                    <Link key={el?.id}>
-                      {el?.position === "RIBBON_VIDEO" ? (
-                        <img
-                          className="react-player1"
-                          src={el?.file_url}
-                          style={{
-                            width: "100%",
-                            objectFit: "contain",
-                            height: "fit-content",
-                          }}
-                          alt=""
-                        />
-                      ) : (
-                        ""
-                      )}
-                    </Link>
-                  ))}
-              </Box>
-            </Box>
-          </Box>
-         
-          <Box sx={{ height: { md: 0, xs: "20px" } }} />
-          {/* {!blv && ads && (
-            <>
-              <Box
-                sx={{
-                  display: "flex ",
-                  justifyContent: "space-between",
-                  py: 0.5,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: {
-                      xs: "flex",
-                      md: "flex",
-                      width: "100%",
-                    },
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    lassName="button_info"
-                    startIcon={<PlayArrowIcon style={{ opacity: 0.65 }} />}
-                    sx={{
-                      boxShadow: "none",
-                      bgcolor: "red",
-                      color: "white",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "fit-content",
-                      fontSize: "10px",
-                      m: { xs: 1 },
-                    }}
-                  >
-                    <Box sx={{}}>
-                      <Typography
-                        sx={{ fontSize: "9px", textTransform: "capitalize" }}
-                      >
-                        Cược ngay
-                      </Typography>
-                    </Box>
-                  </Button>
-                </Box>
-                <Box
-                  sx={{
-                    display: {
-                      xs: "flex",
-                      md: "flex",
-                      justifyContent: "end",
-                      width: "100%",
-                    },
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    lassName="button_info"
-                    startIcon={<TelegramIcon color="blue" />}
-                    sx={{
-                      boxShadow: "none",
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "fit-content",
-                      m: { xs: 1 },
-                    }}
-                  >
-                    <Link
-                      onClick={() => {
-                        window.open(
-                          "https://t.me/chotkeocungblvhangbai",
-                          "_blank"
-                        );
-                      }}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: "9px",
-                          textTransform: "capitalize",
-                          color: "white",
-                        }}
-                      >
-                        Telegram
-                      </Typography>
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="contained"
-                    lassName="button_info"
-                    startIcon={<FacebookOutlinedIcon color="blue" />}
-                    sx={{
-                      boxShadow: "none",
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "fit-content",
-                      fontSize: "10px",
-                      m: { xs: 1 },
-                    }}
-                  >
-                    <Link
-                      onClick={() => {
-                        window.open(
-                          "https://www.facebook.com/groups/blvhangnghien",
-                          "_blank"
-                        );
-                      }}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: { md: "9px", xs: "9px" },
-                          textTransform: "capitalize",
-                          color: "white",
-                        }}
-                      >
-                        Facebook
-                      </Typography>
-                    </Link>
-                  </Button>
-                </Box>
-              </Box>
-            </>
-          )} */}
-        </Box>
-          </Sticky>
-          {ChatBox ? (
-          chatBoxIframe
-        ) : (
-          <CustomGrid size={12} flexDirectionStyle headerBox />
-        )}
-      </Box>}
       {/* {ads?.map((el) => (
            <Link key={el?.id}>
             {el?.position === "RIGHT" ?  <Box sx={{ flexDirection : 'column', display : { md : 'flex', sm : 'none', xs : 'none'}, height : '100%' }}>

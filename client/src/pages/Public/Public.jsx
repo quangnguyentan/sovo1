@@ -5,8 +5,6 @@ import Marquee from '../../components/AppBar/Marquee/Marquee'
 import Banner from '../../components/AppBar/Banner_Header/Banner'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
-import BannerLeft from '../../assets/banner_left.gif'
-import BannerRight from '../../assets/banner_right.gif'
 import React, { useEffect, useState } from 'react'
 import { apiGetBanner } from '../../services/bannerService'
 import { Button, Chip, Modal } from '@mui/material'
@@ -14,8 +12,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import popup from '../../assets/popup.gif'
 import loading1 from '../../assets/loading1.webp'
 import { useMediaQuery } from '@mui/material';
-
+import { useDispatch, useSelector } from 'react-redux';
 import '../../index.css'
+import { getBanner } from '../../stores/actions/bannerAction'
 function Public() {
   const [ads, setAds] = useState('')
   const location = useLocation()
@@ -49,9 +48,10 @@ function Public() {
       setAds(filter)
     }
   }
+ 
 
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setScrollPosition(window.scrollY);
@@ -59,12 +59,13 @@ function Public() {
 
     return () => clearInterval(interval);
   }, []); 
+
   useEffect(() => {
     setLoading(true)
     const timer =  setTimeout(() => {
       apiGetAllADS()
       setLoading(false)
-    }, 1000)
+    }, 300)
     return () => clearTimeout(timer);
   }, [])
   return (
@@ -93,10 +94,7 @@ function Public() {
        </Box>
      </Modal>
    </div> */}
-    {!isDesktop && scrollPosition > 80 ? <Box sx={{ height : '150px'}}>
-
-    </Box> : <>
-      <Box sx={{ position : 'sticky', top : 0, zIndex : 2 }}>
+   <Box sx={{ position : 'sticky', top : 0, zIndex : 2 }}>
       <AppBar/>
       <Marquee/>
     </Box>
@@ -111,7 +109,11 @@ function Public() {
         <Button  className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px',  }} > Cược Ngay </Button>
         </Link>
     </Container>
-    </>}
+    {/* {!isDesktop && scrollPosition > 0 ? <Box sx={{ height : '105px'}}>
+
+    </Box> : <>
+      
+    </>} */}
     {location.pathname?.slice(0, 6) === "/video" ? '' : <Banner data={ads} />}
    <Box sx={{ display : 'flex' , m : 0 }}>
         {ads?.map((el) => (

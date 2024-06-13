@@ -11,57 +11,55 @@ import { apiGetPosts } from "../../services/postService";
 import CustomSkeleton from "../../components/CustomSkeleton/CustomSkeleton";
 import { apiGetBanner } from "../../services/bannerService";
 import { apiGetStream } from "../../services/streamService";
+import loading1 from "../../assets/loading1.webp";
+import { useDispatch, useSelector } from "react-redux";
+import { getBanner } from "../../stores/actions/bannerAction";
 
 function Home() {
   const [visible, setVisible] = useState(12);
   const [posts, setPosts] = useState("");
   const [ads, setAds] = useState("");
   const [stream, setStream] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const apiGetAllADS = async () => {
-    const response = await apiGetBanner();
-    if (response?.success) {
-      const filter = response?.ads
-        ?.filter((f) => f?.root_domain === "sovo.link")
-        ?.map((el) => {
-          return el;
-        });
-      setAds(filter);
-    }
-  };
+  // const apiGetAllADS = async () => {
+  //   const response = await apiGetBanner();
+  //   if (response?.success) {
+  //     const filter = response?.ads
+  //       ?.filter((f) => f?.root_domain === "sovo.link")
+  //       ?.map((el) => {
+  //         return el;
+  //       });
+  //     setAds(filter);
+  //   }
+  // };
+ 
   const showMoreItem = () => {
     setVisible((preValue) => preValue + 3);
   };
 
-  const apiGetPost = async () => {
-    const response = await apiGetPosts();
-    if (response.success) setPosts(response?.post);
-  };
-  const apiGetAllStream = async () => {
-    const response = await apiGetStream();
-    if (response.success) setStream(response?.stream);
-  };
+  // const apiGetPost = async () => {
+  //   const response = await apiGetPosts();
+  //   if (response.success) setPosts(response?.post);
+  // };
+ 
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    apiGetPost() && apiGetAllADS() && apiGetAllStream();
-  }, []);
   return (
-    <Container
-      fixed
-      disableGutters
-      sx={{
-        height: (theme) => theme.football.cardVideoHeight,
-        width: { md: "70%", xs: "100%" },
-      }}
-    >
-      <Box sx={{ p: { md: 0, xs: 0 }, m: { md: 0, xs: 0 } }}>
-        {ads && stream && (
-          <CardVideo data={ads} dataStream={stream} titleContent blv />
-        )}
-      </Box>
-      <Box sx={{ height: { xs: 0, xl: "20px" } }} />
-      {/* <Box
+    <>
+      {
+        <Container
+          fixed
+          disableGutters
+          sx={{
+            height: (theme) => theme.football.cardVideoHeight,
+            width: { md: "70%", xs: "100%" },
+          }}
+        >
+          <Box sx={{ p: { md: 0, xs: 0 }, m: { md: 0, xs: 0 } }}>
+            <CardVideo titleContent blv />
+          </Box>
+          <Box sx={{ height: { xs: 0, xl: "20px" } }} />
+          {/* <Box
         sx={{
           p: { md: 0, xs: 0 },
           m: { md: 0, xs: 0 },
@@ -107,37 +105,40 @@ function Home() {
           />
         </Box>
       </Box> */}
-      <Box
-        sx={{ width: "100%", bgcolor: "#000000", px: 4, borderRadius: "15px " }}
-      >
-        <Box
-          sx={{ py: 2, justifyContent: "center"}}
-        >
-          <img
-            src={TranHotBanner}
-            alt=""
-            style={{
-              display: { md: "flex", xs: "none" },
-              objectFit: "contain",
+          <Box
+            sx={{
+              width: "100%",
+              bgcolor: "#000000",
+              px: 4,
+              borderRadius: "15px ",
             }}
-          />
-        </Box>
-        <CustomGrid size={2} start={0} end={visible} />
-        <Box sx={{ py: 2, justifyContent: "center", display: "flex" }}>
-          <img
-            src={btnMore}
-            onClick={showMoreItem}
-            alt=""
-            style={{
-              cursor: "pointer",
-              display: { md: "flex", xs: "none" },
-              objectFit: "contain",
-            }}
-            className="show_more_banner"
-          />
-        </Box>
-      </Box>
-      {/* <Box
+          >
+            <Box sx={{ py: 2, justifyContent: "center" }}>
+              <img
+                src={TranHotBanner}
+                alt=""
+                style={{
+                  display: { md: "flex", xs: "none" },
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+            <CustomGrid size={2} start={0} end={visible} />
+            <Box sx={{ py: 2, justifyContent: "center", display: "flex" }}>
+              <img
+                src={btnMore}
+                onClick={showMoreItem}
+                alt=""
+                style={{
+                  cursor: "pointer",
+                  display: { md: "flex", xs: "none" },
+                  objectFit: "contain",
+                }}
+                className="show_more_banner"
+              />
+            </Box>
+          </Box>
+          {/* <Box
         sx={{
           width: "100%",
           py: { md: 1, xs: 0 },
@@ -180,9 +181,10 @@ function Home() {
         </Box>
       </Box> */}
 
-      {/* {posts ? <CustomCard data={posts} title={'Soi kèo bóng đá'}/> : ''} */}
-    </Container>
+          {/* {posts ? <CustomCard data={posts} title={'Soi kèo bóng đá'}/> : ''} */}
+        </Container>
+      }
+    </>
   );
 }
-
 export default Home;

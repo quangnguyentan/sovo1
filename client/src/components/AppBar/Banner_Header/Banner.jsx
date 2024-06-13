@@ -7,13 +7,13 @@ import { Box } from "@mui/material";
 function Banner({ data }) {
   const bannerLeft = 'https://sovotv.live/uploads/resources/images/760c52157f0797e19698d7a409cac2f2.gif'
   const checkBanner = [];
-  if (data) {
-    data
-      ?.filter((fm) => fm?.position === "TOP")
-      ?.map((el) => {
-        checkBanner.push(el);
-      });
-  }
+  // if (data) {
+  //   data
+  //     ?.filter((fm) => fm?.position === "TOP")
+  //     ?.map((el) => {
+  //       checkBanner.push(el);
+  //     });
+  // }
 
   return (
     <Container
