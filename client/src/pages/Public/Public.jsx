@@ -8,19 +8,13 @@ import Footer from '../../components/Footer/Footer'
 import React, { useEffect, useState } from 'react'
 import { apiGetBanner } from '../../services/bannerService'
 import { Button, Chip, Modal } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close';
 import nen from '../../assets/nên dennnn 1-01.png'
-import loading1 from '../../assets/2.gif'
 import { useMediaQuery } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
 import ScrollReveal from 'scrollreveal'
 import '../../index.css'
-import { getBanner } from '../../stores/actions/bannerAction'
 function Public() {
   const [ads, setAds] = useState('')
   const location = useLocation()
-  const [open, setOpen] = React.useState(false);
-  const [loading, setLoading] = useState(false)
   const isDesktop = useMediaQuery('(min-width: 1600px) and (min-height: 900px)');
   const css = {
     container: {
@@ -70,7 +64,7 @@ function Public() {
   useEffect(() => {
     apiGetAllADS()
   }, [])
-  ScrollReveal().reveal('.container', {delay : 0, duration :600, mobile : true, easing: 'cubic-bezier(0.5, 0, 0, 1)',})
+  ScrollReveal().reveal('.container', {delay : 0, duration :600, mobile : true, desktop: true, easing: 'cubic-bezier(0.5, 0, 0, 1)',})
   return (
    <>
  {ads && <Container className='container' disableGutters maxWidth={false}>
@@ -101,13 +95,13 @@ function Public() {
     </Box>
     <Box  style={css.container}>
     <Container disableGutters  fixed sx={{ display : 'flex', alignItems : 'center', gap : 1, py : 1, px : location.pathname.slice(0, 2) !== '/'  ? {md : location.pathname.slice(0, 6) === "/video" ? 5 : 20, xl : location.pathname === '/top-nha-cai'  ? 0 : 5} : {md : 20, xl : 0}}}>
-       <Link style={{ textDecoration : 'none' }}>
+       <Link to='/' style={{ textDecoration : 'none' }}>
           <Button className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px' }} > Cược Ngay </Button>
         </Link>
-        <Link style={{ textDecoration : 'none' }}>
+        <Link to='/' style={{ textDecoration : 'none' }}>
         <Button  className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px',  }} > Cược Ngay </Button>
         </Link>
-        <Link style={{ textDecoration : 'none' }}>
+        <Link to='/' style={{ textDecoration : 'none' }}>
         <Button  className='button_info' sx={{ color : 'white', borderRadius : '5px', fontWeight : 600, width : {md : 'fit-content', xs : 'fit-content'}, height: {md : '40px', xs : '25px'}, fontSize : '10px',  }} > Cược Ngay </Button>
         </Link>
     </Container>

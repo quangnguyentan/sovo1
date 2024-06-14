@@ -1,9 +1,5 @@
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import bannerFooterRight from "../../assets/banner_footer_right.gif";
-import bannerFooterLeft from "../../assets/banner_footer.gif";
 import Typography from "@mui/material/Typography";
-import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { Divider } from "@mui/material";
 import logo from "../../assets/logo.png";

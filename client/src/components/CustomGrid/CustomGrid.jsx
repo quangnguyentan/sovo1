@@ -37,6 +37,7 @@ function CustomGrid({
   const [account, setAccount] = useState("");
   const [stream, setStream] = useState("");
   const [loading, setLoading] = useState(false)
+  const [buttonHidden, setButtonHidden] = useState(false)
   const location = useLocation();
   const linkSetBit =
     "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242";
@@ -114,7 +115,7 @@ function CustomGrid({
   checkOnlStream()?.filter((rs) => ls.push(rs?.match_id));
   useEffect(() => {
     getApiMatches() && getApiAccount() && apiGetStreamSetting();
-  }, []);
+  }, [location]);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Box
@@ -409,10 +410,7 @@ function CustomGrid({
                           <Grid item xs={2} sm={4} md={4} key={el?.id} className="card_grid"  >
                             {/* {stream && stream?.filter(str => str?.match_id === account?.id)?.map(rs => ( */}
                             <Link
-                              onClick={() => {
-                                window.location.href = `/video/${el?.id}/${result?.id}/${el?.slug}`;
-                                
-                              }}
+                             
                               to={`/video/${el?.id}/${result?.id}/${el?.slug}`}
                               style={{ textDecoration: "none" }}
                             >

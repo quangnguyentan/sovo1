@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
-import bannerRight from "../../../assets/banner_header_right.gif";
 import Container from "@mui/material/Container";
-import { Box } from "@mui/material";
-
 function Banner({ data }) {
   const bannerLeft = 'https://sovotv.live/uploads/resources/images/760c52157f0797e19698d7a409cac2f2.gif'
   const checkBanner = [];

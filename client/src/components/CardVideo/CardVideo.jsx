@@ -1,24 +1,15 @@
-import ReactPlayer from "react-player";
-import ReactHlsPlayer from "react-hls-player";
 import Box from "@mui/material/Box";
 import CustomGrid from "../CustomGrid/CustomGrid";
-import BannerBottomVideo from "../../assets/banner_video.gif";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TelegramIcon from "@mui/icons-material/Telegram";
-import { Helmet } from "react-helmet";
 import qc from "../../assets/qc.jpg";
 import aftermatch from "../../assets/ẢNH trước trận đấu-01.jpg";
-import Sticky from 'react-sticky-el';
 import loadingGif from '../../assets/1.gif'
 import {
   Player,
   BigPlayButton,
   ControlBar,
   LoadingSpinner,
-  PlayToggle,
-  VolumeMenuButton,
-  FullscreenToggle,
 } from "video-react";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import { makeStyles } from "@mui/styles";
@@ -28,23 +19,21 @@ import { useEffect, useRef, useState } from "react";
 import backgroundHeaderTitle from "../../assets/nene.png";
 import { apiGetAccountById } from "../../services/accountService";
 import { apiGetMatchesById } from "../../services/matchService";
-// import loading from "../../assets/loading.gif";
-import loading from "../../assets/loading1.webp";
 import { useMediaQuery } from '@mui/material';
+import isStart from '../../assets/đang diễn ra.png'
+import isFootBall1 from '../../assets/Nen dang da-05.png'
+import isFootBall2 from '../../assets/Nen dang da-06.png'
+
+
 import {
   Link,
-  unstable_HistoryRouter,
   useLocation,
   useParams,
 } from "react-router-dom";
 import { Chip, Container, Grid, Typography } from "@mui/material";
-import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import { apiGetBanner } from "../../services/bannerService";
 
-import bannerLeft from "../../assets/banner_header_left.gif";
-import bannerRight from "../../assets/banner_header_right.gif";
 import { apiGetStream, apiGetStreamById } from "../../services/streamService";
-import videojs from "video.js";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ScrollReveal from 'scrollreveal'
 
@@ -104,11 +93,32 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [adsBannerBottomFull, setAdsBannerBottomFull] = useState("");
   const [loading, setloading] = useState(false)
   const isDesktop = useMediaQuery('(min-width: 1600px) and (min-height: 900px)');
-  ScrollReveal().reveal('.chat-box', {delay : 0, duration :600, mobile : true, easing: 'cubic-bezier(0.5, 0, 0, 1)',})
-
+  const isStarting = {
+    container: {
+      backgroundImage: `url('${isStart}')`,
+      backgroundPosition: "bottom center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+    },
+  };
+  const isPlayFootball1 = {
+    container: {
+      backgroundImage: `url('${isFootBall1}')`,
+      backgroundPosition: "bottom center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+    },
+  };
+  const isPlayFootball2 = {
+    container: {
+      backgroundImage: `url('${isFootBall2}')`,
+      backgroundPosition: "bottom center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "100% 100%",
+    },
+  };
   const chatBoxIframe = (
     <Box
-    className='chat-box'
       sx={{
         width: { md: "30%", xs: "100%" },
         height: { md: "500px", xs: "350px" },
@@ -130,17 +140,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   );
   const classes = useStyles();
 
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-
-  //   script.src = "https://vjs.zencdn.net/8.10.0/video.min.js";
-  //   script.async = true;
-  //   document.body.appendChild(script);
-
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   };
-  // }, []);
+ 
 
   const apiGetByIDStream = async (idStr) => {
     const response = await apiGetStreamById(idStr);
@@ -205,18 +205,28 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     const response = await apiGetMatchesById(ids);
     if (response.success) setMatches(response?.matchesId);
   };
+ 
   useEffect(() => {
-    if (location.pathname.slice(0, 2) !== "/") {
-      apiGetMatches(idMatches) &&
-        apiGetAccount(idAccount) & apiGetByIDStream(Number(idMatches));
-    }
-  }, []);
-  useEffect(() => {
+    window.scrollTo({
+      top : 0,
+      left: 0,
+      behavior :'smooth'
+    })
+   
     setloading(true)
+    setHidden(false)
+    setHiddenButton(false)
+    setVisible(false)
+    setTime(null)
     setTimeout(() => {
+      if (location.pathname.slice(0, 2) !== "/") {
+        apiGetMatches(idMatches) &&
+          apiGetAccount(idAccount) && apiGetByIDStream(Number(idMatches));
+      }
       setloading(false)
-    }, 500)
+    }, 700)
   }, [location])
+ 
   const styles = {
     heroContainer: {
       backgroundImage: `url('${backgroundHeaderTitle}')`,
@@ -253,6 +263,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     apiGetAllStream();
   }, []);
   useEffect(() => {
+    
     if (hidden) {
       const timeInterVal = setInterval(() => {
         const newTime = changeTime();
@@ -263,7 +274,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         clearInterval(timeInterVal);
       };
     }
-  }, [hidden]);
+    
+  }, [hidden, location]);
 
   //   useEffect(() => {
   //     const timeNextArrow = setInterval(() => {
@@ -276,9 +288,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   //  }, [])
   const handleChangeFullscreen = () => {
     let video;
-    // let html = `
-    //   <image src="https://img.icons8.com/?size=100&id=7FSknHLAHdnP&format=png&color=000000"/>
-    // `
+   
 
     document.addEventListener("fullscreenchange", function () {
       var isFullscreen = document.fullscreenElement !== null;
@@ -368,7 +378,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       if(video){
       video.play();
       }
-      console.log(video)
       if(myVideo){
         myVideo.classList.remove("vjs-paused");
         myVideo.classList.add("vjs-playing");
@@ -386,26 +395,25 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     });
   };
 
-  const handleClick = () => {
-    const video = document.getElementById("my-video_html5_api");
+  // const handleClick = () => {
+  //   const video = document.getElementById("my-video_html5_api");
 
-    const adSkipButton = document.getElementById("ad-skip-button");
-    const userGestureEvents = ["touchend", "click"];
-    const handleAdSkip = () => {
-      console.log(video);
-      video.play();
-    };
-    userGestureEvents.forEach((event) => {
-      adSkipButton.addEventListener(event, handleAdSkip);
-    });
+  //   const adSkipButton = document.getElementById("ad-skip-button");
+  //   const userGestureEvents = ["touchend", "click"];
+  //   const handleAdSkip = () => {
+  //     video.play();
+  //   };
+  //   userGestureEvents.forEach((event) => {
+  //     adSkipButton.addEventListener(event, handleAdSkip);
+  //   });
 
-    return () => {
-      userGestureEvents.forEach((event) => {
-        adSkipButton.removeEventListener(event, handleAdSkip);
-      });
-      video.removeEventListener("fullscreenchange");
-    };
-  };
+  //   return () => {
+  //     userGestureEvents.forEach((event) => {
+  //       adSkipButton.removeEventListener(event, handleAdSkip);
+  //     });
+  //     video.removeEventListener("fullscreenchange");
+  //   };
+  // };
 
   const [visible, setVisible] = useState(false);
   
@@ -430,12 +438,14 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       window.removeEventListener("DOMContentLoaded", waitButtonClick);
     };
   }, [waitButtonClick]);
+  ScrollReveal().reveal('.card_video', {delay : 0,  desktop: true,  mobile : true, easing: 'ease-in',})
 
   return (
    <>
     {loading ? <Box sx={{ width : '100%', height : '100vh' , objectFit : 'cover' }}>
       <img src={loadingGif}/>
     </Box> :  <Box
+    className='card_video'
       sx={{
         height: "fit-content",
         md: 0,
@@ -550,6 +560,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               >
                 <Link style={{ textDecoration: "none" }}>
                   <Chip
+                  style={isStarting.container}
                     label={
                       stream && stream[0]?.m3u8_url ? (
                         <Box
@@ -576,6 +587,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 <Typography sx={{ fontSize: "25px" }}>0 - 0</Typography>
                 <Link style={{ textDecoration: "none" }}>
                   <Chip
+                    style={isPlayFootball1.container}
                     label="Cược TA88 đảm bảo uy tín 100%"
                     className="button_info"
                     sx={{
@@ -591,6 +603,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                 </Link>
                 <Link style={{ textDecoration: "none" }}>
                   <Chip
+                  style={isPlayFootball2.container}
                     label="Cược LUCKY88 đảo bảo uy tín 100%"
                     className="button_info"
                     sx={{

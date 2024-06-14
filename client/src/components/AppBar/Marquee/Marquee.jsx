@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import Mar from 'react-fast-marquee'
-import headerMarquee from '../../../assets/chữ chạy trên trang chủ-06.png'
+import headerMarquee from '../../../assets/nên trên-02.png'
 function Marquee() {
   const css = {
     container: {

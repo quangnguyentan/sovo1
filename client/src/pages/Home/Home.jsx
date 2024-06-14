@@ -4,24 +4,11 @@ import CardVideo from "../../components/CardVideo/CardVideo";
 import CustomGrid from "../../components/CustomGrid/CustomGrid";
 import TranHotBanner from "../../assets/tranhot.png";
 import btnMore from "../../assets/btnMore.webp";
-import BannerBottomVideo from "../../assets/banner_video.gif";
-import CustomCard from "../../components/CustomCard/CustomCard";
 import { useEffect, useState } from "react";
-import { apiGetPosts } from "../../services/postService";
-import CustomSkeleton from "../../components/CustomSkeleton/CustomSkeleton";
-import { apiGetBanner } from "../../services/bannerService";
-import { apiGetStream } from "../../services/streamService";
-import loading1 from "../../assets/loading1.webp";
-import { useDispatch, useSelector } from "react-redux";
-import { getBanner } from "../../stores/actions/bannerAction";
 import ScrollReveal from "scrollreveal";
 
 function Home() {
   const [visible, setVisible] = useState(12);
-  const [posts, setPosts] = useState("");
-  const [ads, setAds] = useState("");
-  const [stream, setStream] = useState("");
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -54,6 +41,7 @@ function Home() {
     delay: 0,
     duration: 600,
     mobile: true,
+    desktop: true,
     easing: "cubic-bezier(0.5, 0, 0, 1)",
   });
 
