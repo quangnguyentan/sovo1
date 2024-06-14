@@ -816,7 +816,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   preload="auto"
                   autoPlay="autoPlay"
                   playsInline
-                  poster={!stream[0]?.m3u8_url ? qc : ""}
+                  poster={!stream[0]?.m3u8_url ? qc : loadingGif}
                   videoWidth="100%"
                   videoHeight="100%"
                   data-setup="{'fuild' : true}"
