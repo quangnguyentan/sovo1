@@ -109,9 +109,9 @@ body {
   opacity: 0 !important;
 }
 
-/* .video-js .vjs-big-play-button{
+.video-js .vjs-big-play-button{
   display: none !important;
-} */
+}
 .vjs-loading-spinner{
   display: none !important;
 }

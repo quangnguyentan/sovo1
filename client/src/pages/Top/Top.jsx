@@ -8,7 +8,11 @@ import { useEffect } from 'react'
 import { Chip, Typography } from '@mui/material'
 function Top() {
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({
+      top : 0,
+      left: 0,
+      behavior :'smooth'
+    })
   }, [])
   return (
     <Container fixed disableGutters sx={{ height : {md : '100vh', xs : 'fit-contetn'}, width : { md : '70%', xs : '100%', } }}>      

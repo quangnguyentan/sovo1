@@ -14,6 +14,7 @@ import { apiGetStream } from "../../services/streamService";
 import loading1 from "../../assets/loading1.webp";
 import { useDispatch, useSelector } from "react-redux";
 import { getBanner } from "../../stores/actions/bannerAction";
+import ScrollReveal from "scrollreveal";
 
 function Home() {
   const [visible, setVisible] = useState(12);
@@ -21,7 +22,13 @@ function Home() {
   const [ads, setAds] = useState("");
   const [stream, setStream] = useState("");
   const [loading, setLoading] = useState(false);
-  
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
   // const apiGetAllADS = async () => {
   //   const response = await apiGetBanner();
   //   if (response?.success) {
@@ -33,7 +40,7 @@ function Home() {
   //     setAds(filter);
   //   }
   // };
- 
+
   const showMoreItem = () => {
     setVisible((preValue) => preValue + 3);
   };
@@ -42,7 +49,13 @@ function Home() {
   //   const response = await apiGetPosts();
   //   if (response.success) setPosts(response?.post);
   // };
- 
+
+  ScrollReveal().reveal("video_home", {
+    delay: 0,
+    duration: 600,
+    mobile: true,
+    easing: "cubic-bezier(0.5, 0, 0, 1)",
+  });
 
   return (
     <>
@@ -55,7 +68,10 @@ function Home() {
             width: { md: "70%", xs: "100%" },
           }}
         >
-          <Box sx={{ p: { md: 0, xs: 0 }, m: { md: 0, xs: 0 } }}>
+          <Box
+            className="video_home"
+            sx={{ p: { md: 0, xs: 0 }, m: { md: 0, xs: 0 } }}
+          >
             <CardVideo titleContent blv />
           </Box>
           <Box sx={{ height: { xs: 0, xl: "20px" } }} />

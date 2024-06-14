@@ -20,7 +20,11 @@ function CustomCardById({ title,  data }) {
         if(response.success) setPosts(response?.postsId)
     }
     useEffect(() => {
-        window.scrollTo(0, 0)
+      window.scrollTo({
+        top : 0,
+        left: 0,
+        behavior :'smooth'
+      })
         apiGetPost(ids)
     }, [])
   

@@ -39,6 +39,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^3.1.0",
+    "scrollreveal": "^4.0.9",
     "thunk": "^0.0.1",
     "use-ad-block-detection": "^1.0.1",
     "video-react": "^0.16.0",

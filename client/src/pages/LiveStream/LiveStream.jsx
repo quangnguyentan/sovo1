@@ -5,7 +5,12 @@ import { useEffect } from 'react'
 
 function LiveStream() {
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({
+      top : 0,
+      left: 0,
+      behavior :'smooth'
+    })
+    
   }, [])
   return (
     <Container sx={{ p : 0 }}>

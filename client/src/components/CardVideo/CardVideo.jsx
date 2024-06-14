@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import qc from "../../assets/qc.jpg";
 import aftermatch from "../../assets/ẢNH trước trận đấu-01.jpg";
 import Sticky from 'react-sticky-el';
+import loadingGif from '../../assets/1.gif'
 import {
   Player,
   BigPlayButton,
@@ -45,6 +46,8 @@ import bannerRight from "../../assets/banner_header_right.gif";
 import { apiGetStream, apiGetStreamById } from "../../services/streamService";
 import videojs from "video.js";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import ScrollReveal from 'scrollreveal'
+
 // const myStyles = makeStyles((theme) => ({
 
 //   "@media screen and (min-width: 1600px) and (min-height: 900px)": {
@@ -99,9 +102,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [stream, setStream] = useState("");
   const [allStream, setAllStream] = useState("");
   const [adsBannerBottomFull, setAdsBannerBottomFull] = useState("");
+  const [loading, setloading] = useState(false)
   const isDesktop = useMediaQuery('(min-width: 1600px) and (min-height: 900px)');
+  ScrollReveal().reveal('.chat-box', {delay : 0, duration :600, mobile : true, easing: 'cubic-bezier(0.5, 0, 0, 1)',})
+
   const chatBoxIframe = (
     <Box
+    className='chat-box'
       sx={{
         width: { md: "30%", xs: "100%" },
         height: { md: "500px", xs: "350px" },
@@ -204,6 +211,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         apiGetAccount(idAccount) & apiGetByIDStream(Number(idMatches));
     }
   }, []);
+  useEffect(() => {
+    setloading(true)
+    setTimeout(() => {
+      setloading(false)
+    }, 500)
+  }, [location])
   const styles = {
     heroContainer: {
       backgroundImage: `url('${backgroundHeaderTitle}')`,
@@ -395,6 +408,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   };
 
   const [visible, setVisible] = useState(false);
+  
   useEffect(() => {
     const script = document.createElement("script");
     const link = document.createElement("link");
@@ -416,8 +430,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       window.removeEventListener("DOMContentLoaded", waitButtonClick);
     };
   }, [waitButtonClick]);
+
   return (
-    <Box
+   <>
+    {loading ? <Box sx={{ width : '100%', height : '100vh' , objectFit : 'cover' }}>
+      <img src={loadingGif}/>
+    </Box> :  <Box
       sx={{
         height: "fit-content",
         md: 0,
@@ -870,7 +888,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   zIndex: 1,
                   objectFit: "contain",
                   position: "absolute",
-                  right: { xs: "12px", md: "12px" },
+                  right: { xs: "110px", md: "110px" },
                   display: " flex",
                   gap: { md: 2, xs: 1 },
                   color: "white",
@@ -905,12 +923,32 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                     }}
                   />
                 </Link>
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Chip
+                
+              </Box>
+              <Box
+                className="video_container_link"
+                sx={{
+                  zIndex: 1,
+                  objectFit: "contain",
+                  position: "absolute",
+                  right: { xs: "12px", md: "12px" },
+                  display: " flex",
+                  gap: { md: 2, xs: 1 },
+                  color: "white",
+                  fontSize: "10px",
+                  textTransform: "capitalize",
+                  cursor: "pointer",
+                  bottom: {
+                    md: 25,
+                    xs:
+                      location.pathname.slice(0, 2) === "/" && visible === true
+                        ? 0
+                        : 15,
+                  },
+                }}
+              >
+               
+                <Chip
                     label="CƯỢC NGAY"
                     className="button_info"
                     sx={{
@@ -922,7 +960,13 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                       fontSize: "10px",
                     }}
                   />
-                </Link>
+                {/* <Link 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                 
+                </Link> */}
               </Box>
               <Box
                 className={classes.video_container_bottom_banner}
@@ -1144,7 +1188,8 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             <img src={BannerBottomVideo} style={{ width :  '100%', objectFit : 'contain' }} alt="" /> 
           </Box>
       </Box> */}
-    </Box>
+    </Box>}
+   </>
   );
 }
 

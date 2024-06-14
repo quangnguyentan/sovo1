@@ -13,6 +13,7 @@ import nen from '../../assets/nên dennnn 1-01.png'
 import loading1 from '../../assets/2.gif'
 import { useMediaQuery } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
+import ScrollReveal from 'scrollreveal'
 import '../../index.css'
 import { getBanner } from '../../stores/actions/bannerAction'
 function Public() {
@@ -58,27 +59,21 @@ function Public() {
 
   const [scrollPosition, setScrollPosition] = useState(0);
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setScrollPosition(window.scrollY);
-    }, 500);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setScrollPosition(window.scrollY);
+  //   }, 500);
 
-    return () => clearInterval(interval);
-  }, []); 
+  //   return () => clearInterval(interval);
+  // }, []); 
 
   useEffect(() => {
-    setLoading(true)
-    const timer =  setTimeout(() => {
-      apiGetAllADS()
-      setLoading(false)
-    }, 300)
-    return () => clearTimeout(timer);
+    apiGetAllADS()
   }, [])
+  ScrollReveal().reveal('.container', {delay : 0, duration :600, mobile : true, easing: 'cubic-bezier(0.5, 0, 0, 1)',})
   return (
    <>
- {loading ? <Box sx={{ width : '100%', height : '100vh'}}>
-  <img src={loading1}  style={{ width : '100%' , height : '100%', objectFit : 'cover' }}/>
- </Box> : ads && <Container disableGutters maxWidth={false}>
+ {ads && <Container className='container' disableGutters maxWidth={false}>
      {/* <div>
      <Modal
        open={open}

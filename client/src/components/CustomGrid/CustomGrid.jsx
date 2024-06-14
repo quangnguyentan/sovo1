@@ -23,6 +23,7 @@ import { apiGetStream } from "../../services/streamService";
 import aftermatch from '../../assets/Khung tran dau-02.png'
 import buttonBit from '../../assets/Khung tran dau-01.png'
 import khung from '../../assets/ĐƯỜNG VIỀN TRÊN TRẬN-01.png'
+import ScrollReveal from 'scrollreveal'
 
 function CustomGrid({
   size,
@@ -35,7 +36,7 @@ function CustomGrid({
   const [matches, setMatches] = useState("");
   const [account, setAccount] = useState("");
   const [stream, setStream] = useState("");
-
+  const [loading, setLoading] = useState(false)
   const location = useLocation();
   const linkSetBit =
     "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242";
@@ -80,9 +81,7 @@ function CustomGrid({
     const response = await apiGetAccount();
     if (response.success) setAccount(response.account);
   };
-  useEffect(() => {
-    getApiMatches() && getApiAccount() && apiGetStreamSetting();
-  }, []);
+  
   const convertDate = (dateString) => {
     if (dateString) {
       const date = new Date(dateString);
@@ -97,7 +96,6 @@ function CustomGrid({
     }
   };
 
-  const navigate = useNavigate();
   const apiGetStreamSetting = async () => {
     const response = await apiGetStream();
     if (response.success) setStream(response?.stream);
@@ -114,6 +112,9 @@ function CustomGrid({
 
   const ls = [];
   checkOnlStream()?.filter((rs) => ls.push(rs?.match_id));
+  useEffect(() => {
+    getApiMatches() && getApiAccount() && apiGetStreamSetting();
+  }, []);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Box
@@ -405,12 +406,12 @@ function CustomGrid({
                       account
                         ?.filter((acc) => acc?.id === el?.account_id)
                         ?.map((result) => (
-                          <Grid item xs={2} sm={4} md={4} key={el?.id}  >
+                          <Grid item xs={2} sm={4} md={4} key={el?.id} className="card_grid"  >
                             {/* {stream && stream?.filter(str => str?.match_id === account?.id)?.map(rs => ( */}
                             <Link
                               onClick={() => {
                                 window.location.href = `/video/${el?.id}/${result?.id}/${el?.slug}`;
-                              
+                                
                               }}
                               to={`/video/${el?.id}/${result?.id}/${el?.slug}`}
                               style={{ textDecoration: "none" }}

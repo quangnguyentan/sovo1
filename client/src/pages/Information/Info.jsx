@@ -3,7 +3,11 @@ import CustomCard from '../../components/CustomCard/CustomCard'
 import { useEffect } from 'react'
 function Info() {
     useEffect(() => {
-      window.scrollTo(0, 0)
+      window.scrollTo({
+        top : 0,
+        left: 0,
+        behavior :'smooth'
+      })
     }, [])
   return (
     <Container disableGutters fixed >
