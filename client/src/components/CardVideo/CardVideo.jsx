@@ -976,7 +976,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   <Box
                     className={classes.video_container_bottom_banner}
                     sx={{
-                      zIndex: 1,
+                      zIndex: 0,
                       position: "absolute",
                       cursor: "pointer",
                       bottom: {
@@ -992,12 +992,9 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                   >
                     {adsSetting &&
                       adsSetting?.map((el) => (
-                        <Link
+                        <Box
                           key={el?.id}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none" }}
-                          to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                         
                         >
                           {el?.position === "RIBBON_VIDEO" ? (
                             <img
@@ -1013,7 +1010,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
                           ) : (
                             ""
                           )}
-                        </Link>
+                        </Box>
                       ))}
                   </Box>
                 </Box>
