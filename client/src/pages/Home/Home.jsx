@@ -37,14 +37,7 @@ function Home() {
   //   if (response.success) setPosts(response?.post);
   // };
 
-  ScrollReveal().reveal("video_home", {
-    delay: 0,
-    duration: 600,
-    mobile: true,
-    desktop: true,
-    easing: "cubic-bezier(0.5, 0, 0, 1)",
-  });
-
+ 
   return (
     <>
       {

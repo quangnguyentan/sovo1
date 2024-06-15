@@ -64,7 +64,6 @@ function Public() {
   useEffect(() => {
     apiGetAllADS()
   }, [])
-  ScrollReveal().reveal('.container', {delay : 0, duration :600, mobile : true, desktop: true, easing: 'cubic-bezier(0.5, 0, 0, 1)',})
   return (
    <>
  {ads && <Container className='container' disableGutters maxWidth={false}>
