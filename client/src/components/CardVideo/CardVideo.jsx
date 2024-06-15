@@ -997,7 +997,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
               >
                 {adsSetting &&
                   adsSetting?.map((el) => (
-                    <Link key={el?.id}>
+                    <Link key={el?.id} to='https://www.cmd368cc.online/vi-VN/home?btag=b_749__242'>
                       {el?.position === "RIBBON_VIDEO" ? (
                         <img
                           className="react-player1"
