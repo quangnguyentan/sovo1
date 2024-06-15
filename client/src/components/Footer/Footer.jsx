@@ -3,9 +3,9 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Divider } from "@mui/material";
 import logo from "../../assets/logo.png";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 function Footer() {
-  const location = useLocation()
+  const location = useLocation();
   const styles = {
     heroContainer: {
       backgroundImage: `url('https://staticcdn-mn.mediastation.live/template/public/img/bg_footer.png')`,
@@ -50,9 +50,14 @@ function Footer() {
               height: "50px",
             }}
           >
-            <a style={AStyles} href="#">
+            <Link
+              style={AStyles}
+              target="_blank"
+              rel="noopener noreferrer"
+              to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+            >
               <img style={IStyles} src="/src/assets/banner_video.gif" />
-            </a>
+            </Link>
           </div>
           <button
             onClick={() => setHidden(!hidden)}
@@ -89,7 +94,7 @@ function Footer() {
               justifyContent: "center",
               px: { xl: 40, xs: 1 },
               gap: { xs: 2, xl: 6 },
-              py: { md: 8, xs: location.pathname.slice(0, 2) !== '/' ? 2 :2 },
+              py: { md: 8, xs: location.pathname.slice(0, 2) !== "/" ? 2 : 2 },
             }}
           >
             <Box sx={{ flex: 1 }}>
@@ -189,8 +194,8 @@ function Footer() {
               đá và soi kèo bóng đá với tỷ lệ chiến thắng cao. Chúc bạn đọc xem
               bóng đá vui vẻ và luôn ủng hộ SoVoTv
             </Box>
-            <Box sx={{ display: { xs: "none", md : 'flex' } }}>
-                <hr style={{ height: "140px" }} />
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <hr style={{ height: "140px" }} />
             </Box>
             <Box
               sx={{
@@ -214,7 +219,7 @@ function Footer() {
                 TOP NHÀ CÁI
               </Typography>
             </Box>
-            <Box sx={{ display: { xs: "none",md : 'flex' } }}>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <hr style={{ height: "140px" }} />
             </Box>
             <Box
@@ -235,7 +240,7 @@ function Footer() {
                 sx={{
                   display: "flex",
                   gap: 2,
-                  justifyContent: { xs: "center", xl : 'start' },
+                  justifyContent: { xs: "center", xl: "start" },
                 }}
               >
                 <Box>

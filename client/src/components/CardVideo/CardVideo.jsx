@@ -4,13 +4,8 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import qc from "../../assets/qc.jpg";
 import aftermatch from "../../assets/ẢNH trước trận đấu-01.jpg";
-import loadingGif from '../../assets/1.gif'
-import {
-  Player,
-  BigPlayButton,
-  ControlBar,
-  LoadingSpinner,
-} from "video-react";
+import loadingGif from "../../assets/1.gif";
+import { Player, BigPlayButton, ControlBar, LoadingSpinner } from "video-react";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
@@ -19,23 +14,18 @@ import { useEffect, useRef, useState } from "react";
 import backgroundHeaderTitle from "../../assets/nene.png";
 import { apiGetAccountById } from "../../services/accountService";
 import { apiGetMatchesById } from "../../services/matchService";
-import { useMediaQuery } from '@mui/material';
-import isStart from '../../assets/đang diễn ra.png'
-import isFootBall1 from '../../assets/Nen dang da-05.png'
-import isFootBall2 from '../../assets/Nen dang da-06.png'
+import { useMediaQuery } from "@mui/material";
+import isStart from "../../assets/đang diễn ra.png";
+import isFootBall1 from "../../assets/Nen dang da-05.png";
+import isFootBall2 from "../../assets/Nen dang da-06.png";
 
-
-import {
-  Link,
-  useLocation,
-  useParams,
-} from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Chip, Container, Grid, Typography } from "@mui/material";
 import { apiGetBanner } from "../../services/bannerService";
 
 import { apiGetStream, apiGetStreamById } from "../../services/streamService";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import ScrollReveal from 'scrollreveal'
+import ScrollReveal from "scrollreveal";
 
 // const myStyles = makeStyles((theme) => ({
 
@@ -91,8 +81,10 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   const [stream, setStream] = useState("");
   const [allStream, setAllStream] = useState("");
   const [adsBannerBottomFull, setAdsBannerBottomFull] = useState("");
-  const [loading, setloading] = useState(false)
-  const isDesktop = useMediaQuery('(min-width: 1600px) and (min-height: 900px)');
+  const [loading, setloading] = useState(false);
+  const isDesktop = useMediaQuery(
+    "(min-width: 1600px) and (min-height: 900px)"
+  );
   const isStarting = {
     container: {
       backgroundImage: `url('${isStart}')`,
@@ -139,8 +131,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     </Box>
   );
   const classes = useStyles();
-
- 
 
   const apiGetByIDStream = async (idStr) => {
     const response = await apiGetStreamById(idStr);
@@ -189,7 +179,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     const response = await apiGetAccountById(ids);
     if (response.success) setAccount(response?.accountId);
   };
-  
+
   const convertDate = (dateString) => {
     if (dateString) {
       const date = new Date(dateString);
@@ -205,28 +195,29 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     const response = await apiGetMatchesById(ids);
     if (response.success) setMatches(response?.matchesId);
   };
- 
+
   useEffect(() => {
     window.scrollTo({
-      top : 0,
+      top: 0,
       left: 0,
-      behavior :'smooth'
-    })
-   
-    setloading(true)
-    setHidden(false)
-    setHiddenButton(false)
-    setVisible(false)
-    setTime(null)
+      behavior: "smooth",
+    });
+
+    setloading(true);
+    setHidden(false);
+    setHiddenButton(false);
+    setVisible(false);
+    setTime(null);
     setTimeout(() => {
       if (location.pathname.slice(0, 2) !== "/") {
         apiGetMatches(idMatches) &&
-          apiGetAccount(idAccount) && apiGetByIDStream(Number(idMatches));
+          apiGetAccount(idAccount) &&
+          apiGetByIDStream(Number(idMatches));
       }
-      setloading(false)
-    }, 700)
-  }, [location])
- 
+      setloading(false);
+    }, 700);
+  }, [location]);
+
   const styles = {
     heroContainer: {
       backgroundImage: `url('${backgroundHeaderTitle}')`,
@@ -263,7 +254,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     apiGetAllStream();
   }, []);
   useEffect(() => {
-    
     if (hidden) {
       const timeInterVal = setInterval(() => {
         const newTime = changeTime();
@@ -274,7 +264,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
         clearInterval(timeInterVal);
       };
     }
-    
   }, [hidden, location]);
 
   //   useEffect(() => {
@@ -288,7 +277,6 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   //  }, [])
   const handleChangeFullscreen = () => {
     let video;
-   
 
     document.addEventListener("fullscreenchange", function () {
       var isFullscreen = document.fullscreenElement !== null;
@@ -374,11 +362,11 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
     waitInitElement("#my-video_html5_api").then((rs) => {
       const video = document.getElementById("my-video_html5_api");
       const myVideo = document.getElementById("my-video");
-      
-      if(video){
-      video.play();
+
+      if (video) {
+        video.play();
       }
-      if(myVideo){
+      if (myVideo) {
         myVideo.classList.remove("vjs-paused");
         myVideo.classList.add("vjs-playing");
       }
@@ -389,9 +377,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       if (controlBar) {
         controlBar.classList.remove("vjs-paused");
         controlBar.classList.add("vjs-playing");
-      
       }
-
     });
   };
 
@@ -416,7 +402,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   // };
 
   const [visible, setVisible] = useState(false);
-  
+
   useEffect(() => {
     const script = document.createElement("script");
     const link = document.createElement("link");
@@ -440,719 +426,732 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
   }, [waitButtonClick]);
 
   return (
-   <>
-    {loading ? <Box sx={{ width : '100%', height : '100vh' , objectFit : 'cover' }}>
-      <img src={loadingGif}/>
-    </Box> :  <Box
-      sx={{
-        height: "fit-content",
-        md: 0,
-        xs: 0,
-        bgcolor: "#1B1C21",
-        p: 0,
-        pt: { xl: 1, xs: 0 },
-      }}
-    >
-      {!titleContent && matches && (
-        <Container disableGutters sx={{ py: { md: 0, xs: 3 }, px: 2 }}>
-          {adsSetting &&
-            adsSetting?.map((el) => (
-              <Box key={el?.id}>
-                {el?.position === "TOP" ? (
-                  <Box sx={{ display: "flex" }}>
-                    <Box
-                      sx={{
-                        width: "100%",
-                        py: { md: 0, xs: 0 },
-                        display: { md: "flex", xs: "flex" },
-                        flexDirection: { xs: "column", md: "row" },
-                      }}
-                    >
-                      <Box sx={{ width: { md: "100%", xs: "100%" } }}>
-                        <Link
-                          onClick={() => {
-                            window.open(
-                              "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242",
-                              "_blank"
-                            );
-                          }}
-                        >
-                          <img
-                            src={el?.file_url}
-                            style={{ width: "100%", objectFit: "contain" }}
-                            alt=""
-                          />
-                        </Link>
-                      </Box>
-                      <Box sx={{ width: { md: "100%", xs: "100%" } }}>
-                        <Link
-                          onClick={() => {
-                            window.open(
-                              "https://www.cmd368cc.online/vi-VN/home?btag=b_749__242",
-                              "_blank"
-                            );
-                          }}
-                        >
-                          <img
-                            src={el?.file_url}
-                            style={{ width: "100%", objectFit: "contain" }}
-                            alt=""
-                          />
-                        </Link>
-                      </Box>
-                    </Box>
-                  </Box>
-                ) : (
-                  ""
-                )}
-              </Box>
-            ))}
-
-          <Box
-            sx={{
-              pt: {
-                xs: 0,
-                md: 0,
-                width: "100%",
-                height: { md: "120px", xs: "120px" },
-              },
-            }}
-            style={styles.heroContainer}
-          >
-            <Box
-              sx={{
-                py: 4,
-                display: { md: "flex", xs: "none" },
-                gap: 4,
-                justifyContent: "space-between",
-                px: { xs: 1, md: 8 },
-                alignItems: "center",
-                color: "white",
-              }}
-            >
-              <Box
-                sx={{
-                  flexDirection: "column",
-                  alignItems: "center",
-                  display: "flex",
-                  gap: 1,
-                }}
-              >
-                <img
-                  width="70px"
-                  height="70px"
-                  src={matches[0]?.host_club_logo_url}
-                  alt=""
-                />
-                <Typography sx={{ fontSize: "14px" }}>
-                  {matches[0]?.host_club_name}
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  flexDirection: "column",
-                  alignItems: "center",
-                  display: "flex",
-                  gap: 1,
-                }}
-              >
-                <Link style={{ textDecoration: "none" }}>
-                  <Chip
-                  style={isStarting.container}
-                    label={
-                      stream && stream[0]?.m3u8_url ? (
-                        <Box
-                          sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                        >
-                          <Box className="truc_tiep"></Box>
-                          <span>Đang diễn ra</span>
-                        </Box>
-                      ) : (
-                        "Chưa diễn ra"
-                      )
-                    }
-                    className="button_info"
-                    sx={{
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "30px",
-                      fontSize: "10px",
-                    }}
-                  />
-                </Link>
-                <Typography sx={{ fontSize: "25px" }}>0 - 0</Typography>
-                <Link style={{ textDecoration: "none" }}>
-                  <Chip
-                    style={isPlayFootball1.container}
-                    label="Cược TA88 đảm bảo uy tín 100%"
-                    className="button_info"
-                    sx={{
-                      display: { md: "flex", xs: "none" },
-                      color: "white",
-                      borderRadius: "3px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "30px",
-                      fontSize: "10px",
-                    }}
-                  />
-                </Link>
-                <Link style={{ textDecoration: "none" }}>
-                  <Chip
-                  style={isPlayFootball2.container}
-                    label="Cược LUCKY88 đảo bảo uy tín 100%"
-                    className="button_info"
-                    sx={{
-                      display: { md: "flex", xs: "none" },
-                      color: "white",
-                      borderRadius: "3px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "30px",
-                      fontSize: "10px",
-                    }}
-                  />
-                </Link>
-              </Box>
-              <Box
-                sx={{
-                  flexDirection: "column",
-                  alignItems: "center",
-                  display: "flex",
-                  gap: 1,
-                }}
-              >
-                <img
-                  width="70px"
-                  height="70px"
-                  src={matches[0]?.guest_club_logo_url}
-                  alt=""
-                />
-                <Typography sx={{ fontSize: "14px" }}>
-                  {matches[0]?.guest_club_name}
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              width: "100%",
-              height: "60px",
-              p: 0,
-              display: "flex",
-              flexDirection: "column",
-              color: "white",
-              pt: 1,
-            }}
-          >
-            <Box
-              sx={{
-                fontSize: { md: "15px", xs: "12px" },
-                fontWeight: 600,
-                py: 1,
-              }}
-            >
-              Phát trực tiếp {matches[0]?.host_club_name} vs{" "}
-              {matches[0]?.guest_club_name} vào lúc{" "}
-              {matches[0]?.start_time?.slice(0, -3)}, ngày{" "}
-              {convertDate(matches[0]?.start_date)}
-            </Box>
-            <Box
-              sx={{
-                fontStyle: "italic",
-                color: "gray",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: { md: "17px", xs: "12px" },
-                  textTransform: "capitalize",
-                  display: { md: "flex", xs: "inline-block" },
-                  fontWeight: 600,
-                  color: "white",
-                }}
-              >
-                {matches[0]?.tournament_name}
-              </Typography>
-              <Box sx={{ display: "flex" }}>
-                <Typography
-                  sx={{
-                    fontSize: { md: "15px", xs: "12px" },
-                    textTransform: "capitalize",
-                    display: { md: "flex", xs: "inline-block" },
-                    fontWeight: 600,
-                    color: "white",
-                  }}
-                >
-                  Người bình luận:&nbsp;
-                </Typography>
-
-                <Typography
-                  sx={{
-                    fontSize: { md: "15px", xs: "12px" },
-                    textTransform: "capitalize",
-                    display: { md: "flex", xs: "inline-block" },
-                    fontWeight: 600,
-                    color: "white",
-                  }}
-                >
-                  {account[0]?.name}
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-        </Container>
-      )}
-     
-      <Box
-        sx={{
-          display: { md: "flex" },
-          gap: 2,
-          px: {
-            md: location.pathname !== "/" ? 2 : 0,
-            xl: location.pathname !== "/" ? 2 : 0,
-          },
-        }}
-      >
+    <>
+      {loading ? (
+        <Box sx={{ width: "100%", height: "100vh", objectFit: "cover" }}>
+          <img src={loadingGif} />
+        </Box>
+      ) : (
         <Box
           sx={{
-            width: {
-              md: location?.pathname === "/" ? "66%" : "70%",
-              xs: "100%",
-            },
-            height: "100%",
+            height: "fit-content",
+            md: 0,
+            xs: 0,
+            bgcolor: "#1B1C21",
+            p: 0,
+            pt: { xl: 1, xs: 0 },
           }}
         >
-          {location.pathname.slice(0, 2) !== "/" ? (
-            <Box sx={{ height: "30px" }} />
-          ) : (
-            ""
+          {!titleContent && matches && (
+            <Container disableGutters sx={{ py: { md: 0, xs: 3 }, px: 2 }}>
+              {adsSetting &&
+                adsSetting?.map((el) => (
+                  <Box key={el?.id}>
+                    {el?.position === "TOP" ? (
+                      <Box sx={{ display: "flex" }}>
+                        <Box
+                          sx={{
+                            width: "100%",
+                            py: { md: 0, xs: 0 },
+                            display: { md: "flex", xs: "flex" },
+                            flexDirection: { xs: "column", md: "row" },
+                          }}
+                        >
+                          <Box sx={{ width: { md: "100%", xs: "100%" } }}>
+                            <Link
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                            >
+                              <img
+                                src={el?.file_url}
+                                style={{ width: "100%", objectFit: "contain" }}
+                                alt=""
+                              />
+                            </Link>
+                          </Box>
+                          <Box sx={{ width: { md: "100%", xs: "100%" } }}>
+                            <Link
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                            >
+                              <img
+                                src={el?.file_url}
+                                style={{ width: "100%", objectFit: "contain" }}
+                                alt=""
+                              />
+                            </Link>
+                          </Box>
+                        </Box>
+                      </Box>
+                    ) : (
+                      ""
+                    )}
+                  </Box>
+                ))}
+
+              <Box
+                sx={{
+                  pt: {
+                    xs: 0,
+                    md: 0,
+                    width: "100%",
+                    height: { md: "120px", xs: "120px" },
+                  },
+                }}
+                style={styles.heroContainer}
+              >
+                <Box
+                  sx={{
+                    py: 4,
+                    display: { md: "flex", xs: "none" },
+                    gap: 4,
+                    justifyContent: "space-between",
+                    px: { xs: 1, md: 8 },
+                    alignItems: "center",
+                    color: "white",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      flexDirection: "column",
+                      alignItems: "center",
+                      display: "flex",
+                      gap: 1,
+                    }}
+                  >
+                    <img
+                      width="70px"
+                      height="70px"
+                      src={matches[0]?.host_club_logo_url}
+                      alt=""
+                    />
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {matches[0]?.host_club_name}
+                    </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      flexDirection: "column",
+                      alignItems: "center",
+                      display: "flex",
+                      gap: 1,
+                    }}
+                  >
+                    <Chip
+                      style={isStarting.container}
+                      label={
+                        stream && stream[0]?.m3u8_url ? (
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 1,
+                            }}
+                          >
+                            <Box className="truc_tiep"></Box>
+                            <span>Đang diễn ra</span>
+                          </Box>
+                        ) : (
+                          "Chưa diễn ra"
+                        )
+                      }
+                      className="button_info"
+                      sx={{
+                        color: "white",
+                        borderRadius: "10px",
+                        fontWeight: 600,
+                        width: "fit-content",
+                        height: "30px",
+                        fontSize: "10px",
+                      }}
+                    />
+                    <Typography sx={{ fontSize: "25px" }}>0 - 0</Typography>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                    >
+                      <Chip
+                        style={isPlayFootball1.container}
+                        label="Cược TA88 đảm bảo uy tín 100%"
+                        className="button_info"
+                        sx={{
+                          display: { md: "flex", xs: "none" },
+                          color: "white",
+                          borderRadius: "3px",
+                          fontWeight: 600,
+                          width: "fit-content",
+                          height: "30px",
+                          fontSize: "10px",
+                        }}
+                      />
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                    >
+                      <Chip
+                        style={isPlayFootball2.container}
+                        label="Cược LUCKY88 đảo bảo uy tín 100%"
+                        className="button_info"
+                        sx={{
+                          display: { md: "flex", xs: "none" },
+                          color: "white",
+                          borderRadius: "3px",
+                          fontWeight: 600,
+                          width: "fit-content",
+                          height: "30px",
+                          fontSize: "10px",
+                        }}
+                      />
+                    </Link>
+                  </Box>
+                  <Box
+                    sx={{
+                      flexDirection: "column",
+                      alignItems: "center",
+                      display: "flex",
+                      gap: 1,
+                    }}
+                  >
+                    <img
+                      width="70px"
+                      height="70px"
+                      src={matches[0]?.guest_club_logo_url}
+                      alt=""
+                    />
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {matches[0]?.guest_club_name}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "60px",
+                  p: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  color: "white",
+                  pt: 1,
+                }}
+              >
+                <Box
+                  sx={{
+                    fontSize: { md: "15px", xs: "12px" },
+                    fontWeight: 600,
+                    py: 1,
+                  }}
+                >
+                  Phát trực tiếp {matches[0]?.host_club_name} vs{" "}
+                  {matches[0]?.guest_club_name} vào lúc{" "}
+                  {matches[0]?.start_time?.slice(0, -3)}, ngày{" "}
+                  {convertDate(matches[0]?.start_date)}
+                </Box>
+                <Box
+                  sx={{
+                    fontStyle: "italic",
+                    color: "gray",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: { md: "17px", xs: "12px" },
+                      textTransform: "capitalize",
+                      display: { md: "flex", xs: "inline-block" },
+                      fontWeight: 600,
+                      color: "white",
+                    }}
+                  >
+                    {matches[0]?.tournament_name}
+                  </Typography>
+                  <Box sx={{ display: "flex" }}>
+                    <Typography
+                      sx={{
+                        fontSize: { md: "15px", xs: "12px" },
+                        textTransform: "capitalize",
+                        display: { md: "flex", xs: "inline-block" },
+                        fontWeight: 600,
+                        color: "white",
+                      }}
+                    >
+                      Người bình luận:&nbsp;
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontSize: { md: "15px", xs: "12px" },
+                        textTransform: "capitalize",
+                        display: { md: "flex", xs: "inline-block" },
+                        fontWeight: 600,
+                        color: "white",
+                      }}
+                    >
+                      {account[0]?.name}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Container>
           )}
-          {hidden && !hiddenButton && (
+
+          <Box
+            sx={{
+              display: { md: "flex" },
+              gap: 2,
+              px: {
+                md: location.pathname !== "/" ? 2 : 0,
+                xl: location.pathname !== "/" ? 2 : 0,
+              },
+            }}
+          >
             <Box
               sx={{
-                position: "relative ",
-                display: "flex",
-                width: { md: "100%", xs: "100%" },
-                justifyContent: "space-between",
+                width: {
+                  md: location?.pathname === "/" ? "66%" : "70%",
+                  xs: "100%",
+                },
+                height: "100%",
               }}
             >
-              {/* {changeSource !== sources.bunnyTrailer && <Button variant="contained" style={{ position : 'absolute', zIndex : 1, 
+              {location.pathname.slice(0, 2) !== "/" ? (
+                <Box sx={{ height: "30px" }} />
+              ) : (
+                ""
+              )}
+              {hidden && !hiddenButton && (
+                <Box
+                  sx={{
+                    position: "relative ",
+                    display: "flex",
+                    width: { md: "100%", xs: "100%" },
+                    justifyContent: "space-between",
+                  }}
+                >
+                  {/* {changeSource !== sources.bunnyTrailer && <Button variant="contained" style={{ position : 'absolute', zIndex : 1, 
         color : 'white', fontSize : '10px', textTransform : 'capitalize', cursor : 'default',
         right : { md : '68%'}, width : 'fit-cotent', margin : '10px',  height: '30px', backgroundColor : 'black' }}>Video sẽ tự động bỏ qua sau {timeNext}</Button>} */}
-              {ads && stream ? (
-                time === 0 || time === undefined ? (
-                  <Button
-                    id="ad-skip-button"
-                    endIcon={<SkipNextIcon />}
-                    onClick={() => {
-                      waitButtonClick();
-                      setVisible(true);
-                      setHiddenButton(true);
+                  {ads && stream ? (
+                    time === 0 || time === undefined ? (
+                      <Button
+                        id="ad-skip-button"
+                        endIcon={<SkipNextIcon />}
+                        onClick={() => {
+                          waitButtonClick();
+                          setVisible(true);
+                          setHiddenButton(true);
+                        }}
+                        variant="contained"
+                        style={{
+                          position: "absolute",
+                          zIndex: 1,
+                          color: "white",
+                          fontSize: "10px",
+                          textTransform: "capitalize",
+                          cursor: "pointer",
+                          right: 10,
+                          width: "fit-content",
+                          margin: "25px",
+                          height: "30px",
+                          backgroundColor: "black",
+                        }}
+                      >
+                        Bỏ qua
+                      </Button>
+                    ) : (
+                      <Button
+                        endIcon={<SkipNextIcon />}
+                        variant="contained"
+                        style={{
+                          position: "absolute",
+                          zIndex: 1,
+                          color: "white",
+                          fontSize: "10px",
+                          textTransform: "capitalize",
+                          cursor: "default",
+                          right: 10,
+                          width: "fit-content",
+                          margin: "25px",
+                          height: "30px",
+                          backgroundColor: "black",
+                        }}
+                      >
+                        Có thể bỏ qua {time ? time : 5}
+                      </Button>
+                    )
+                  ) : (
+                    ""
+                  )}
+                </Box>
+              )}
+              <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
+                {visible && stream && (
+                  <Box
+                    className="video_container"
+                    sx={{
+                      height: { md: "470px" },
                     }}
-                    variant="contained"
-                    style={{
+                  >
+                    <video
+                      id="my-video"
+                      class="video-js"
+                      controls={true}
+                      preload="auto"
+                      autoPlay="autoPlay"
+                      playsInline
+                      poster={!stream[0]?.m3u8_url ? qc : loadingGif}
+                      videoWidth="100%"
+                      videoHeight="100%"
+                      data-setup="{'fuild' : true}"
+                    >
+                      <source
+                        src={stream[0]?.m3u8_url}
+                        type="application/x-mpegURL"
+                        label="1080p"
+                        res="1080"
+                      />
+                    </video>
+                  </Box>
+                )}
+
+                {!visible && ads && (
+                  <Player
+                    onPlay={() => {
+                      setHidden(true);
+                    }}
+                    controls={false}
+                    width="100%"
+                    playsInline
+                    height="100%"
+                    src={
+                      ads?.file_url
+                        ? ads?.file_url
+                        : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"
+                    }
+                    poster={aftermatch}
+                    preload="auto"
+                    className="customIcon"
+                  >
+                    <ControlBar disableDefaultControls autoHide={true}>
+                      <ControlBar disableDefaultControls>
+                        {/* <PlayToggle /> */}
+                        {/* <VolumeMenuButton /> */}
+                      </ControlBar>
+                      <ControlBar disableDefaultControls>
+                        {/* <FullscreenToggle /> */}
+                      </ControlBar>
+                    </ControlBar>
+                    <BigPlayButton
+                      className={hidden ? "hidden_play" : ""}
+                      position="center"
+                    />
+                    <LoadingSpinner />
+                  </Player>
+                )}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Box
+                    className="video_container_image"
+                    sx={{
                       position: "absolute",
+                      bottom: {
+                        md: 20,
+                        xs:
+                          location.pathname.slice(0, 2) === "/" &&
+                          visible === true
+                            ? 0
+                            : 10,
+                      },
+                      left: 12,
+                      objectFit: "contain",
+                      width: { md: "90px", xs: "50px", zIndex: 1 },
+                    }}
+                  >
+                    <img
+                      src="https://sovotv.live/uploads/resources/images/6dabfc682d7291dbcdb56e76cd965ae6.jpg"
+                      style={{ width: "300px" }}
+                      alt=""
+                    />
+                  </Box>
+                  <Box
+                    className="video_container_link"
+                    sx={{
                       zIndex: 1,
+                      objectFit: "contain",
+                      position: "absolute",
+                      right: { xs: "110px", md: "110px" },
+                      display: " flex",
+                      gap: { md: 2, xs: 1 },
                       color: "white",
                       fontSize: "10px",
                       textTransform: "capitalize",
                       cursor: "pointer",
-                      right: 10,
-                      width: "fit-content",
-                      margin: "25px",
-                      height: "30px",
-                      backgroundColor: "black",
+                      bottom: {
+                        md: 25,
+                        xs:
+                          location.pathname.slice(0, 2) === "/" &&
+                          visible === true
+                            ? 0
+                            : 15,
+                      },
                     }}
                   >
-                    Bỏ qua
-                  </Button>
-                ) : (
-                  <Button
-                    endIcon={<SkipNextIcon />}
-                    variant="contained"
-                    style={{
-                      position: "absolute",
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: "none" }}
+                      to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                    >
+                      <Chip
+                        label="CƯỢC CMD68"
+                        className="button_info"
+                        sx={{
+                          color: "white",
+                          borderRadius: "10px",
+                          fontWeight: 600,
+                          width: { md: "fit-content", xs: "fit-content" },
+                          height: { md: "25px", xs: "20px" },
+                          fontSize: "10px",
+                        }}
+                      />
+                    </Link>
+                  </Box>
+                  <Box
+                    className="video_container_link"
+                    sx={{
                       zIndex: 1,
+                      objectFit: "contain",
+                      position: "absolute",
+                      right: { xs: "12px", md: "12px" },
+                      display: " flex",
+                      gap: { md: 2, xs: 1 },
                       color: "white",
                       fontSize: "10px",
                       textTransform: "capitalize",
-                      cursor: "default",
-                      right: 10,
-                      width: "fit-content",
-                      margin: "25px",
-                      height: "30px",
-                      backgroundColor: "black",
+                      cursor: "pointer",
+                      bottom: {
+                        md: 25,
+                        xs:
+                          location.pathname.slice(0, 2) === "/" &&
+                          visible === true
+                            ? 0
+                            : 15,
+                      },
                     }}
                   >
-                    Có thể bỏ qua {time ? time : 5}
-                  </Button>
-                )
-              ) : (
-                ""
-              )}
-            </Box>
-          )}
-          <Box sx={{ width: "100%", height: "100%", position: "relative" }}>
-            {visible && stream && (
-              <Box
-                className="video_container"
-                sx={{
-                  height: { md: "470px" },
-                }}
-              >
-                <video
-                  id="my-video"
-                  class="video-js"
-                  controls={true}
-                  preload="auto"
-                  autoPlay="autoPlay"
-                  playsInline
-                  poster={!stream[0]?.m3u8_url ? qc : loadingGif}
-                  videoWidth="100%"
-                  videoHeight="100%"
-                  data-setup="{'fuild' : true}"
-                >
-                  <source
-                    src={stream[0]?.m3u8_url}
-                    type="application/x-mpegURL"
-                    label="1080p" 
-                    res="1080"
-                   
-                  />
-                </video>
-              </Box>
-            )}
-
-            {!visible && ads && (
-              <Player
-                onPlay={() => {
-                  setHidden(true);
-                }}
-                controls={false}
-                width="100%"
-                playsInline
-                height="100%"
-                src={
-                  ads?.file_url
-                    ? ads?.file_url
-                    : "https://sovotv.live/uploads/resources/videos/67aee69f05e555769b7c925b6d36aeb7.mp4"
-                }
-                poster={aftermatch}
-                preload="auto"
-                className="customIcon"
-                
-              >
-                <ControlBar disableDefaultControls autoHide={true}>
-                  <ControlBar disableDefaultControls>
-                    {/* <PlayToggle /> */}
-                    {/* <VolumeMenuButton /> */}
-                  </ControlBar>
-                  <ControlBar disableDefaultControls>
-                    {/* <FullscreenToggle /> */}
-                  </ControlBar>
-                </ControlBar>
-                <BigPlayButton
-                  className={hidden ? "hidden_play" : ""}
-                  position="center"
-                />
-                <LoadingSpinner />
-              </Player>
-            )}
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box
-                className="video_container_image"
-                sx={{
-                  position: "absolute",
-                  bottom: {
-                    md: 20,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : 10,
-                  },
-                  left: 12,
-                  objectFit: "contain",
-                  width: { md: "90px", xs: "50px", zIndex: 1 },
-                }}
-              >
-                <img
-                  src="https://sovotv.live/uploads/resources/images/6dabfc682d7291dbcdb56e76cd965ae6.jpg"
-                  style={{ width: "300px" }}
-                  alt=""
-                />
-              </Box>
-              <Box
-                className="video_container_link"
-                sx={{
-                  zIndex: 1,
-                  objectFit: "contain",
-                  position: "absolute",
-                  right: { xs: "110px", md: "110px" },
-                  display: " flex",
-                  gap: { md: 2, xs: 1 },
-                  color: "white",
-                  fontSize: "10px",
-                  textTransform: "capitalize",
-                  cursor: "pointer",
-                  bottom: {
-                    md: 25,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : 15,
-                  },
-                }}
-              >
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none" }}
-                  to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
-                >
-                  <Chip
-                    label="CƯỢC CMD68"
-                    className="button_info"
-                    sx={{
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: { md: "fit-content", xs: "fit-content" },
-                      height: { md: "25px", xs: "20px" },
-                      fontSize: "10px",
-                    }}
-                  />
-                </Link>
-                
-              </Box>
-              <Box
-                className="video_container_link"
-                sx={{
-                  zIndex: 1,
-                  objectFit: "contain",
-                  position: "absolute",
-                  right: { xs: "12px", md: "12px" },
-                  display: " flex",
-                  gap: { md: 2, xs: 1 },
-                  color: "white",
-                  fontSize: "10px",
-                  textTransform: "capitalize",
-                  cursor: "pointer",
-                  bottom: {
-                    md: 25,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : 15,
-                  },
-                }}
-              >
-               
-                <Chip
-                    label="CƯỢC NGAY"
-                    className="button_info"
-                    sx={{
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: { md: "fit-content", xs: "fit-content" },
-                      height: { md: "25px", xs: "20px" },
-                      fontSize: "10px",
-                    }}
-                  />
-                {/* <Link 
+                    <Chip
+                      label="CƯỢC NGAY"
+                      className="button_info"
+                      sx={{
+                        color: "white",
+                        borderRadius: "10px",
+                        fontWeight: 600,
+                        width: { md: "fit-content", xs: "fit-content" },
+                        height: { md: "25px", xs: "20px" },
+                        fontSize: "10px",
+                      }}
+                    />
+                    {/* <Link 
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ textDecoration: "none" }}
                 >
                  
                 </Link> */}
-              </Box>
-              <Box
-                className={classes.video_container_bottom_banner}
-                sx={{
-                  zIndex: 1,
-                  position: "absolute",
-                  cursor: "pointer",
-                  bottom: {
-                    md: -10,
-                    xs:
-                      location.pathname.slice(0, 2) === "/" && visible === true
-                        ? 0
-                        : -10,
-                  },
-                  width: { md: "100%", xs: "100%" },
-                }}
-              >
-                {adsSetting &&
-                  adsSetting?.map((el) => (
-                    <Link key={el?.id} to='https://www.cmd368cc.online/vi-VN/home?btag=b_749__242'>
-                      {el?.position === "RIBBON_VIDEO" ? (
-                        <img
-                          className="react-player1"
-                          src={el?.file_url}
-                          style={{
-                            width: "100%",
-                            objectFit: "contain",
-                            height: "fit-content",
-                          }}
-                          alt=""
-                        />
-                      ) : (
-                        ""
-                      )}
-                    </Link>
-                  ))}
-              </Box>
-            </Box>
-          </Box>
-         
-          <Box sx={{ height: { md: 0, xs: "20px" } }} />
-          {!blv && ads && (
-            <>
-              <Box
-                sx={{
-                  display: "flex ",
-                  justifyContent: "space-between",
-                  py: 0.5,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: {
-                      xs: "flex",
-                      md: "flex",
-                      width: "100%",
-                    },
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    lassName="button_info"
-                    startIcon={<PlayArrowIcon style={{ opacity: 0.65 }} />}
+                  </Box>
+                  <Box
+                    className={classes.video_container_bottom_banner}
                     sx={{
-                      boxShadow: "none",
-                      bgcolor: "red",
-                      color: "white",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "fit-content",
-                      fontSize: "10px",
-                      m: { xs: 1 },
+                      zIndex: 1,
+                      position: "absolute",
+                      cursor: "pointer",
+                      bottom: {
+                        md: -10,
+                        xs:
+                          location.pathname.slice(0, 2) === "/" &&
+                          visible === true
+                            ? 0
+                            : -10,
+                      },
+                      width: { md: "100%", xs: "100%" },
                     }}
                   >
-                    <Box sx={{}}>
-                      <Typography
-                        sx={{ fontSize: "9px", textTransform: "capitalize" }}
+                    {adsSetting &&
+                      adsSetting?.map((el) => (
+                        <Link
+                          key={el?.id}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
+                          to="https://www.cmd368cc.online/vi-VN/home?btag=b_749__242"
+                        >
+                          {el?.position === "RIBBON_VIDEO" ? (
+                            <img
+                              className="react-player1"
+                              src={el?.file_url}
+                              style={{
+                                width: "100%",
+                                objectFit: "contain",
+                                height: "fit-content",
+                              }}
+                              alt=""
+                            />
+                          ) : (
+                            ""
+                          )}
+                        </Link>
+                      ))}
+                  </Box>
+                </Box>
+              </Box>
+
+              <Box sx={{ height: { md: 0, xs: "10px" } }} />
+              {!blv && ads && (
+                <>
+                  <Box
+                    sx={{
+                      display: "flex ",
+                      justifyContent: "space-between",
+                     
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: {
+                          xs: "flex",
+                          md: "flex",
+                          width: "100%",
+                        },
+                      }}
+                    >
+                      <Button
+                        variant="contained"
+                        lassName="button_info"
+                        startIcon={<PlayArrowIcon style={{ opacity: 0.65 }} />}
+                        sx={{
+                          boxShadow: "none",
+                          bgcolor: "red",
+                          color: "white",
+                          fontWeight: 600,
+                          width: "fit-content",
+                          height: "fit-content",
+                          fontSize: "10px",
+                          m: { xs: 1 },
+                        }}
                       >
-                        Cược ngay
-                      </Typography>
+                        <Box sx={{}}>
+                          <Typography
+                            sx={{
+                              fontSize: "9px",
+                              textTransform: "capitalize",
+                            }}
+                          >
+                            Cược ngay
+                          </Typography>
+                        </Box>
+                      </Button>
                     </Box>
-                  </Button>
-                </Box>
-                <Box
-                  sx={{
-                    display: {
-                      xs: "flex",
-                      md: "flex",
-                      justifyContent: "end",
-                      width: "100%",
-                    },
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    lassName="button_info"
-                    startIcon={<TelegramIcon color="blue" />}
-                    sx={{
-                      boxShadow: "none",
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "fit-content",
-                      m: { xs: 1 },
-                    }}
-                  >
-                    <Link
-                      onClick={() => {
-                        window.open(
-                          "https://t.me/chotkeocungblvhangbai",
-                          "_blank"
-                        );
+                    <Box
+                      sx={{
+                        display: {
+                          xs: "flex",
+                          md: "flex",
+                          justifyContent: "end",
+                          width: "100%",
+                        },
                       }}
-                      style={{ textDecoration: "none" }}
                     >
-                      <Typography
-                        sx={{
-                          fontSize: "9px",
-                          textTransform: "capitalize",
-                          color: "white",
-                        }}
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        to="https://t.me/chotkeocungblvhangbai"
+                        style={{ textDecoration: "none" }}
                       >
-                        Telegram
-                      </Typography>
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="contained"
-                    lassName="button_info"
-                    startIcon={<FacebookOutlinedIcon color="blue" />}
-                    sx={{
-                      boxShadow: "none",
-                      color: "white",
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      width: "fit-content",
-                      height: "fit-content",
-                      fontSize: "10px",
-                      m: { xs: 1 },
-                    }}
-                  >
-                    <Link
-                      onClick={() => {
-                        window.open(
-                          "https://www.facebook.com/groups/blvhangnghien",
-                          "_blank"
-                        );
-                      }}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: { md: "9px", xs: "9px" },
-                          textTransform: "capitalize",
-                          color: "white",
-                        }}
+                        <Button
+                          variant="contained"
+                          lassName="button_info"
+                          startIcon={<TelegramIcon color="blue" />}
+                          sx={{
+                            boxShadow: "none",
+                            color: "white",
+                            borderRadius: "10px",
+                            fontWeight: 600,
+                            width: "80px",
+                            height: "30px",
+                            m: { xs: 1 },
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: "9px",
+                              textTransform: "capitalize",
+                              color: "white",
+                            }}
+                          >
+                            Telegram
+                          </Typography>
+                        </Button>
+                      </Link>
+
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        to="https://www.facebook.com/groups/blvhangnghien"
+                        style={{ textDecoration: "none" }}
                       >
-                        Facebook
-                      </Typography>
-                    </Link>
-                  </Button>
-                </Box>
-              </Box>
-            </>
-          )}
-        </Box>
-       
-        {ChatBox ? (
-          chatBoxIframe
-        ) : (
-          <CustomGrid size={12} flexDirectionStyle headerBox />
-        )}
-      </Box>
-      {/* {ads?.map((el) => (
+                        <Button
+                          variant="contained"
+                          lassName="button_info"
+                          startIcon={<FacebookOutlinedIcon color="blue" />}
+                          sx={{
+                            boxShadow: "none",
+                            color: "white",
+                            borderRadius: "10px",
+                            fontWeight: 600,
+                            width: "80px",
+                            height: "30px",
+                            fontSize: "10px",
+                            m: { xs: 1 },
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: { md: "9px", xs: "9px" },
+                              textTransform: "capitalize",
+                              color: "white",
+                            }}
+                          >
+                            Facebook
+                          </Typography>
+                        </Button>
+                      </Link>
+                    </Box>
+                  </Box>
+                </>
+              )}
+            </Box>
+
+            {ChatBox ? (
+              chatBoxIframe
+            ) : (
+              <CustomGrid size={12} flexDirectionStyle headerBox />
+            )}
+          </Box>
+          {/* {ads?.map((el) => (
            <Link key={el?.id}>
             {el?.position === "RIGHT" ?  <Box sx={{ flexDirection : 'column', display : { md : 'flex', sm : 'none', xs : 'none'}, height : '100%' }}>
         <img src={el?.file_url} alt=""style={{ position : 'fixed', right : '5%', top : '15%', height : '40%' }}/>
@@ -1161,7 +1160,7 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
        : ''}
            </Link>
            ))} */}
-      {/* <Box
+          {/* <Box
         sx={{
           width: "100%",
           py: { md: 1, xs: 0 },
@@ -1184,14 +1183,14 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
           />
         </Box>
       </Box> */}
-      <Box sx={{ height: "fit-content", px: 2 }}>
-        {location.pathname.slice(0, 2) !== "/" ? (
-          <CustomGrid start={0} end={6} />
-        ) : (
-          ""
-        )}
-      </Box>
-      {/* <Box sx={{ width : '100%', py :  { md :  1, xs : 0}, display : { md : 'flex' , xs  : 'flex'}, flexDirection : { xs : 'column', md : 'row'} }}>
+          <Box sx={{ height: "fit-content", px: 2 }}>
+            {location.pathname.slice(0, 2) !== "/" ? (
+              <CustomGrid start={0} end={6} />
+            ) : (
+              ""
+            )}
+          </Box>
+          {/* <Box sx={{ width : '100%', py :  { md :  1, xs : 0}, display : { md : 'flex' , xs  : 'flex'}, flexDirection : { xs : 'column', md : 'row'} }}>
           <Box sx={{ width : { md : '50%', xs : '100%'} }}>
             <img src={BannerBottomVideo} style={{ width :  '100%', objectFit : 'contain' }} alt="" /> 
           </Box>
@@ -1199,8 +1198,9 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
             <img src={BannerBottomVideo} style={{ width :  '100%', objectFit : 'contain' }} alt="" /> 
           </Box>
       </Box> */}
-    </Box>}
-   </>
+        </Box>
+      )}
+    </>
   );
 }
 

@@ -74,7 +74,7 @@ export default function DrawRight() {
     <Container  
      sx={{ display: 'flex', justifyContent : 'end'}}>
      
-      <AppBar open={open} sx={{ bgcolor : 'transparent', boxShadow : 'none' , position  : 'relative'}}>
+      <AppBar open={open} sx={{ bgcolor : 'transparent', boxShadow : 'none' , position  : 'static'}}>
         <Toolbar  >
           <IconButton
             color="#2b2b2b"
