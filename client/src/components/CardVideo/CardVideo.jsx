@@ -438,14 +438,12 @@ function CardVideo({ ChatBox, titleContent, blv, data, dataStream }) {
       window.removeEventListener("DOMContentLoaded", waitButtonClick);
     };
   }, [waitButtonClick]);
-  ScrollReveal().reveal('.card_video', {delay : 0,  desktop: true,  mobile : true, easing: 'ease-in',})
 
   return (
    <>
     {loading ? <Box sx={{ width : '100%', height : '100vh' , objectFit : 'cover' }}>
       <img src={loadingGif}/>
     </Box> :  <Box
-    className='card_video'
       sx={{
         height: "fit-content",
         md: 0,
